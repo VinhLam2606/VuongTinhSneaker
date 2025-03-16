@@ -1,0 +1,63 @@
+
+  #login_box {
+    box-shadow: 0 1.6px 3.6px 0 rgb(0 0 0 / 13%), 0 0.3px 0.9px 0 rgb(0 0 0 / 11%);
+    font-family: Arial, Helvetica, sans-serif;
+    width: 25%;
+    margin: 8% auto 5%;
+    text-align: center;
+  }
+  
+  #login_box > div:first-child {
+    margin: auto;
+    width: 50px;
+    height: 40px;
+    border: 1px solid rgb(252, 252, 252);
+  }
+
+  #login_box > h3 {
+    font-size: 20px;
+    color: rgb(231, 37, 179);
+  }
+
+  #login_box > p {
+    font-size: 15px;
+    margin: 2% 0;
+    margin-bottom: 5px;
+    color: rgb(117, 117, 117);
+  }
+  #login_box > p a {
+    font-size: 15px;
+    margin: 2% 0;
+    margin-bottom: 5px;
+    color: rgb(237, 110, 203);
+  }
+  #login_form {
+    margin-top: 8%;
+  }
+  #login_form > input {
+    width: 93%;
+    height: 35px;
+    margin: 2% 0;
+    border: 1px solid rgb(224, 220, 220);
+    padding-left: 15px;
+    color: rgb(117, 117, 117);
+  }
+  #login_form > input:focus {
+    outline: none;
+    border: 2px solid rgb(252, 176, 188);
+  }
+
+#sign_in {
+    width: 98%;
+    height: 40px;
+    background: rgb(231, 37, 179);
+    color: white;
+    margin-bottom: 2%;
+    margin-top:20px;
+    font-family: sans;
+    font-weight: bolder;
+    font-size: 12px;
+    letter-spacing: -0.5px;
+    border: none;
+    border-radius: 5px;
+  }

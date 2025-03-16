@@ -1,0 +1,106 @@
+#signup_box {
+    box-shadow: 0 1.6px 3.6px 0 rgb(0 0 0 / 13%), 0 0.3px 0.9px 0 rgb(0 0 0 / 11%);
+    font-family: Arial, Helvetica, sans-serif;
+    width: 25%;
+    margin: 8% auto 5%;
+    text-align: center;
+  }
+  #signup_box > div:first-child {
+    margin: auto;
+    width: 50px;
+    height: 40px;
+  }
+
+  #signup_box > div > img {
+    width: 100%;
+    height: 100%;
+  }
+
+  #signup_box > h3 {
+    font-size: 20px;
+    color: rgb(238, 85, 197);
+  }
+  #signup_box > p {
+    font-size: 14px;
+    color: rgb(238, 85, 197);
+  }
+  .form {
+    margin-top: 8%;
+  }
+  form input {
+    width: 93%;
+    height: 35px;
+    margin: 2% 0;
+    border: 1px solid rgb(224, 220, 220);
+    padding-left: 15px;
+    color: rgb(117, 117, 117);
+  }
+
+  input:focus {
+    outline: none;
+    border: 2px solid rgb(252, 176, 188);;
+  }
+
+  .gender {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 10px 0;
+}
+
+div.gender {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-self: center;
+    margin: 10px 0;
+}
+
+.gender label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    color: rgb(117, 117, 117);;
+}
+
+#tick_box > div {
+    display: flex;
+    height: 45px;
+    width: 94%;
+    text-align: start;
+  }
+  #tick_box > div > input {
+    width: 30px;
+    margin-right: 4%;
+    margin-left: 1%;
+    accent-color: pink;
+  }
+
+  #tick_box > div > p,
+    #tick_box > p {
+    font-size: 12px;
+    line-height: 13px;
+    transform: translateY(-2px);
+    color: rgb(117, 117, 117);
+    }
+    #tick_box > p > a {
+        color: rgb(117, 117, 117);
+      }
+
+      #sign_up {
+        width: 98%;
+        height: 40px;
+        background: rgb(231, 37, 179);
+        color: white;
+        margin-bottom: 2%;
+        font-family: sans;
+        font-weight: bolder;
+        font-size: 12px;
+        letter-spacing: -0.5px;
+        border: none;
+        border-radius: 5px;
+      }
+
+      
