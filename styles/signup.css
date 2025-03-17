@@ -89,7 +89,7 @@ div.gender {
         color: rgb(117, 117, 117);
       }
 
-      #sign_up {
+    #sign_up {
         width: 98%;
         height: 40px;
         background: rgb(231, 37, 179);
@@ -101,6 +101,10 @@ div.gender {
         letter-spacing: -0.5px;
         border: none;
         border-radius: 5px;
-      }
-
+        cursor: pointer;
+    }
+  #sign_up:hover {
+      cursor: pointer;
+  }
+  
       
