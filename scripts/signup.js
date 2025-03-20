@@ -8,14 +8,15 @@ document.querySelector("#sign_up").addEventListener("click", async (event) => {
     let lastname = document.querySelector("#last").value.trim();
     let birth = document.querySelector("#birth").value;
     let address = document.querySelector("#address").value.trim();
-    let gender = document.querySelector("#gender");
+    let gender = document.querySelector('input[name="gender"]:checked')?.value || "";
+
     let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!phonenumber || !email || !password || !firstname || !lastname || !birth || !address) {
+    if (!phonenumber || !email || !password || !firstname || !lastname || !birth || !address || !gender) {
         alert("Please fill all fields");
         return;
     }
-    
+
     if (phonenumber.length !== 10 || !/^\d+$/.test(phonenumber)) {
         alert("Phone number must be exactly 10 digits!");
         return;
@@ -33,16 +34,28 @@ document.querySelector("#sign_up").addEventListener("click", async (event) => {
         firstname,
         lastname,
         birth,
-        address
+        address,
+        gender
     };
 
+    console.log("Data being sent:", data);
+
     try {
-        let response = await fetch("/VUONGTINHSNEAKER/components/signup.php", {
+        let response = await fetch("signup.php", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(data)
+            body: new URLSearchParams(Object.entries(data)).toString()
         });
 
+        let result = await response.text();
+        console.log("Server response:", result);
+
+        if (response.ok) {
+            alert("Sign-up successful!");
+            window.location.href = "login.php";
+        } else {
+            alert("Sign-up failed: " + result);
+        }
     } catch (error) {
         console.error("Error:", error);
         alert("An error occurred. Please try again later.");

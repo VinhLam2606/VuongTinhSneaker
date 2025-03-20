@@ -14,84 +14,63 @@
                     and community.
             </p>
             <div class="form">
-                <form>
-                    <input type="tel" id = "phonenumber" placeholder="Phone number" autofocus  required minlength="10">
-                    <input type="email" id = "email" placeholder="Email address" autofocus  required minlength="5">
-                    <input type="password" id = "password" placeholder="Password" required minlength="3">
-                    <input type="text" id = "first" placeholder="First Name" required minlength="1">
-                    <input type="text" id = "last" placeholder="Last Name" required minlength="1">
-                    <input type="text" id = "birth" placeholder="Date of Birth" onfocus="(this.type='date')" required>
-                    <input type="text" id="address" placeholder="Address">
+                <form method="POST" action="signup.php">
+                    <input type="tel" name="phonenumber" placeholder="Phone number" required minlength="10">
+                    <input type="email" name="email" placeholder="Email address" required minlength="5">
+                    <input type="password" name="password" placeholder="Password" required minlength="3">
+                    <input type="text" name="firstname" placeholder="First Name" required>
+                    <input type="text" name="lastname" placeholder="Last Name" required>
+                    <input type="date" name="birth" required>
+                    <input type="text" name="address" placeholder="Address">
                     <div class="gender">
-                        <label>
-                            <input type="radio" name="gender" value="male"> Male
-                        </label>
-                        <label>
-                            <input type="radio" name="gender" value="female"> Female
-                        </label>
+                        <label><input type="radio" name="gender" value="male"> Male</label>
+                        <label><input type="radio" name="gender" value="female"> Female</label>
                     </div>
-
-                    <div id = "tick_box">
-                        <div>
-                            <input type="checkbox" name="" id="">
-                            <p>Sign up fo emails to get updates from Vuong Tinh on
-                                products,offer and your Member benefits
-                            </p>
-                        </div>
-                        <p>By Creating an account, you agree to Vuong Tinh's <a href="https://agreementservice.svs.nike.com/rest/agreement?agreementType=privacyPolicy&country=IN&language=en&mobileStatus=false&requestType=redirect&uxId=com.nike.commerce.nikedotcom.web">Privacy Policy</a>
-                            and 
-                            <a href="https://agreementservice.svs.nike.com/rest/agreement?agreementType=termsOfUse&country=IN&language=en&mobileStatus=true&requestType=redirect&uxId=com.nike.commerce.nikedotcom.web">Terms of Use.</a></p>
-                    </div>
-                    <button type="submit" id = "sign_up">SIGN UP</button>
-
+                    <button id="sign_up" type="submit">SIGN UP</button>
                 </form>
+            </div>
         </div>
 
-        <script src="../scripts/signup.js"> </script>
-
         <?php
-                require "/VUONGTINHSNEAKER/components/connect-db.php";
+            include "connect-db.php";
 
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    // Nhận dữ liệu từ form
-                    $phonenumber = $_POST['phonenumber'] ?? "";
-                    $email = $_POST['email'] ?? "";
-                    $password = $_POST['password'] ?? "";
-                    $firstname = $_POST['firstname'] ?? "";
-                    $lastname = $_POST['lastname'] ?? "";
-                    $birth = $_POST['birth'] ?? "";
-                    $address = $_POST['address'] ?? "";
-                    $gender = $_POST['gender'] ?? "";
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $phonenumber = $_POST['phonenumber'] ?? "";
+                $email = $_POST['email'] ?? "";
+                $password = $_POST['password'] ?? "";
+                $firstname = $_POST['firstname'] ?? "";
+                $lastname = $_POST['lastname'] ?? "";
+                $birth = $_POST['birth'] ?? "";
+                $address = $_POST['address'] ?? "";
+                $gender = $_POST['gender'] ?? "";
 
-                    // Kiểm tra dữ liệu không rỗng
-                    if (!$phonenumber || !$email || !$password || !$firstname || !$lastname || !$birth || !$address || !$gender) {
-                        die("All fields are required!");
-                    }
-
-                    // Mã hóa mật khẩu
-                    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-                    // Chèn dữ liệu vào bảng accounts
-                    $stmt1 = $db_server->prepare("INSERT INTO accounts (account_email, account_passwd) VALUES (?, ?)");
-                    $stmt1->bind_param("ss", $email, $hashed_password);
-                    
-                    if (!$stmt1->execute()) {
-                        die("Error inserting into accounts: " . $stmt1->error);
-                    }
-                    $stmt1->close();
-
-                    // Chèn dữ liệu vào bảng customers
-                    $stmt2 = $db_server->prepare("INSERT INTO customers (customer_phone_number, customer_email, customer_first_name, customer_last_name, customer_dob, customer_address, customer_gender) VALUES (?, ?, ?, ?, ?, ?, ?)");
-                    $stmt2->bind_param("sssssss", $phonenumber, $email, $firstname, $lastname, $birth, $address, $gender);
-                    
-                    if (!$stmt2->execute()) {
-                        die("Error inserting into customers: " . $stmt2->error);
-                    }
-                    $stmt2->close();
-
-                    echo "Sign up successful!";
+                // Kiểm tra email đã tồn tại chưa
+                $stmt_check = $db_server->prepare("SELECT * FROM accounts WHERE account_email = ?");
+                $stmt_check->bind_param("s", $email);
+                $stmt_check->execute();
+                $result = $stmt_check->get_result();
+                if ($result->num_rows > 0) {
+                    die("Email already exists!");
                 }
-                ?>
+                $stmt_check->close();
 
+                // Chèn dữ liệu vào bảng accounts
+                $stmt1 = $db_server->prepare("INSERT INTO accounts (account_email, account_passwd) VALUES (?, ?)");
+                $stmt1->bind_param("ss", $email, $password);
+                $stmt1->execute();
+                $stmt1->close();
+
+                // Lấy account_id vừa tạo
+                $account_id = $db_server->insert_id;
+
+                // Chèn dữ liệu vào bảng customers
+                $stmt2 = $db_server->prepare("INSERT INTO customers (account_id, customer_phone_number, customer_first_name, customer_last_name, customer_dob, customer_address, customer_gender) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                $stmt2->bind_param("issssss", $account_id, $phonenumber, $firstname, $lastname, $birth, $address, $gender);
+                $stmt2->execute();
+                $stmt2->close();
+
+                echo "<script>alert('Sign up successful!'); window.location.href='login.php';</script>";
+            }
+        ?>
     </body>
 </html>
