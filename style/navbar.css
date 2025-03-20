@@ -1,5 +1,4 @@
-
-#top_bar {
+#navbar_suraj {
   border: 1px solid transparent;
   width: 99.9%;
 }
@@ -47,16 +46,14 @@ hr {
   margin-left: 30%;
 }
 .center > p {
-  color: rgb(237, 115, 204) !important; /* Force pinkish-purple color */
+  margin-right: 8%;
   cursor: pointer;
 }
-
 .center > p:hover {
-  border-bottom: 2px solid rgb(237, 115, 204);
-  padding-bottom: 5px;
+  border-bottom: 2px solid black;
+  /* margin-top: 6%; */
+  padding-bottom: 15%;
 }
-
-
 .search {
   width: 13%;
   margin-left: 13%;
@@ -248,20 +245,17 @@ hr {
     display: flex;
     margin-left: 10%;
     margin-right: 10%;
-    color: rgb(237, 115, 204);
   }
   .center > p {
     margin-right: 0%;
     cursor: pointer;
     margin-left: 0px;
     margin-right: 25px;
-    color: rgb(237, 115, 204);
   }
   .center > p:hover {
     border-bottom: 2px solid black;
     /* margin-top: 6%; */
     padding-bottom: 15%;
-    color: rgb(237, 115, 204);
   }
   .search {
     width: 13%;
