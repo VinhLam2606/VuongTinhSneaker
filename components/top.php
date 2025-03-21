@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/footer.css">
+    <link rel="stylesheet" href="./style/login.css">
+    <link rel="stylesheet" href="./style/signup.css">
     <link rel="stylesheet" href="./style/navbar.css">
     <link rel="stylesheet" href="./style/index.css">
-    <link rel="stylesheet" href="/style/footer.css">
     <script src="https://kit.fontawesome.com/683b4b40e3.js" crossorigin="anonymous"></script>
     <link nes="" rel="icon" sizes="128x128" href="images/logo.png">
     <link
@@ -19,7 +21,7 @@
 <body>
     <div id="top">
         <div class="left">
-            
+
         </div>
         <div id="right">
             <p>Help</p>
