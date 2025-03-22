@@ -47,17 +47,23 @@
     border: 2px solid rgb(252, 176, 188);
   }
 
-#sign_in {
+  #sign_in {
     width: 98%;
     height: 40px;
     background: rgb(231, 37, 179);
     color: white;
     margin-bottom: 2%;
-    margin-top:20px;
     font-family: sans;
     font-weight: bolder;
     font-size: 12px;
     letter-spacing: -0.5px;
     border: none;
     border-radius: 5px;
+    cursor: pointer; /* Đảm bảo luôn là dạng click */
   }
+
+#sign_in:hover {
+    background: rgb(200, 30, 150); /* Có thể thay đổi màu khi hover */
+}
+
+  
