@@ -323,3 +323,18 @@ hr {
     display: none;
   }
 }
+
+.center > a.nav-link {
+  margin-top: 5%;
+  margin-right: 8%;
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(237, 115, 204); /* Keep the color */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+.center > a.nav-link:hover {
+  border-bottom: 2px solid black;
+  padding-bottom: 15%;
+}

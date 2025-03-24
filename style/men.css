@@ -1,0 +1,384 @@
+#main{
+    /* border: 1px solid red; */
+    height: 1000px;
+    width: 95%;
+    margin: auto;
+    display: flex;
+}
+#heading{
+    /* border: 1px solid red; */
+    height: 50px;
+    margin-bottom: 1%;
+    width: 95%;
+    margin: auto;
+    display: flex;
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+#center{
+    display: flex;
+    margin: auto;
+
+}
+#center>p{
+    margin-right: 15%;
+    cursor: pointer;
+}
+.l{
+    /* border: 1px solid black; */
+    width: 50%;
+    height: 100%;
+}
+.r{
+    /* border: 1px solid black; */
+    height: 100%;
+    
+    width: 50%;
+}
+.content{
+    /* border: 1px solid blue; */
+    height: 250px;
+    width: 50%;
+    margin: auto;
+    margin-top: 1%;
+}
+h5{
+    font-size: 20px;
+    text-align: center;
+    margin: auto;
+}
+h1{
+    text-align: center;
+    margin: auto;
+    font-weight: 900;
+    font-size: 37px;
+    text-transform: capitalize;
+
+}
+.conp{
+  text-align: center;
+}
+.shopbtn{
+    color: white;
+    background-color: black;
+    padding: 13px 34px;
+    border-radius: 35%;
+    border: none;
+    font-size: 18px;
+    margin-left: 43%;
+    cursor: pointer;
+}
+
+#trending{
+    /* border: 1px solid red; */
+
+    height: 600px;
+    width: 95%;
+    margin: auto;
+    display: flex;
+  
+}
+.trnd{
+  /* border: 1px solid red; */
+  width: 95%;
+  margin: auto;
+}
+#trending > div{
+    /* border: 1px solid red; */
+    height: 500px;
+    width: 35%;
+    margin-left: 1%;
+     
+}
+
+.title{
+    /* border: 1px solid red; */
+    display: flex;
+    height: 50px;
+    width: 100%;
+}
+
+.leftc{
+    width: 100%;
+    /* border: 1px solid red; */
+}
+.thelatest{
+    /* border: 1px solid red; */
+    width: 95%;
+    margin: auto;
+  }
+  #latest{
+      /* border: 1px solid red; */
+      height: 900px;
+      width: 95%;
+      margin: auto;
+      display: flex;
+  }
+ 
+
+
+  @media screen and (min-width: 0px) and (max-width: 414px) {
+
+    #main{
+        /* border: 1px solid red; */
+        height: 200px;
+        width: 100%;
+        margin: auto;
+        display: flex;
+    }
+    #heading{
+        /* border: 1px solid red; */
+        height: 50px;
+        margin-bottom: 1%;
+        width: 95%;
+        margin: auto;
+        display: flex;
+        position: sticky;
+        top: 0;
+        background-color: white;
+    }
+    #center{
+        display: flex;
+        margin: auto;
+    
+    }
+    #center>p{
+        margin-right: 15%;
+        cursor: pointer;
+    }
+    .l{
+        /* border: 1px solid black; */
+        width: 50%;
+        height: 100%;
+    }
+    .r{
+        /* border: 1px solid black; */
+        height: 100%;
+        
+        width: 50%;
+    }
+    .content{
+        /* border: 1px solid blue; */
+        height: 250px;
+        width: 100%;
+        margin: auto;
+        margin-top: 1%;
+    }
+    h5{
+        font-size: 20px;
+        text-align: center;
+        margin: auto;
+    }
+    h1{
+        text-align: center;
+        margin: auto;
+        font-weight: 900;
+        font-size: 37px;
+        text-transform: capitalize;
+    
+    }
+    .conp{
+      text-align: center;
+    }
+    .shopbtn{
+        color: white;
+        /* background-color: black; */
+        padding: 13px 34px;
+        border-radius: 20px;
+        border: none;
+        font-size: 18px;
+        /* margin-left: 43%; */
+        cursor: pointer;
+        margin: auto;
+    }
+    
+    #trending{
+        /* border: 1px solid red; */
+        height: 700px;
+        width: 95%;
+        margin: auto;
+        overflow: auto;
+      
+    }
+    .trnd{
+      /* border: 1px solid red; */
+      width: 95%;
+      /* margin: auto; */
+      margin-top: 20%;
+    }
+    #trending > div{
+        /* border: 1px solid red; */
+        height: 500px;
+        width: 35%;
+        margin-left: 1%;
+         
+    }
+    .title{
+        /* border: 1px solid red; */
+        display: flex;
+        height: 50px;
+        width: 100%;
+    }
+    
+    .leftc{
+        width: 100%;
+        /* border: 1px solid red; */
+    }
+    .thelatest{
+        /* border: 1px solid red; */
+        width: 95%;
+        margin: auto;
+      }
+      #latest{
+          /* border: 1px solid red; */
+          height: 400px;
+          width: 100%;
+          margin: auto;
+          display: flex;
+      }
+
+
+
+
+
+
+
+
+
+
+  }
+
+  @media only screen and (min-width: 415px) and (max-width: 820px) {
+    #main{
+        /* border: 1px solid red; */
+        height: 1000px;
+        width: 95%;
+        margin: auto;
+        display: flex;
+    }
+    #heading{
+        /* border: 1px solid red; */
+        height: 50px;
+        margin-bottom: 1%;
+        width: 95%;
+        margin: auto;
+        display: flex;
+        position: sticky;
+        top: 0;
+        background-color: white;
+    }
+    #center{
+        display: flex;
+        margin: auto;
+    
+    }
+    #center>p{
+        margin-right: 15%;
+        cursor: pointer;
+    }
+    .l{
+        /* border: 1px solid black; */
+        width: 50%;
+        height: 100%;
+    }
+    .r{
+        /* border: 1px solid black; */
+        height: 100%;
+        
+        width: 50%;
+    }
+    .content{
+        /* border: 1px solid blue; */
+        height: 250px;
+        width: 50%;
+        margin: auto;
+        margin-top: 1%;
+    }
+    h5{
+        font-size: 20px;
+        text-align: center;
+        margin: auto;
+    }
+    h1{
+        text-align: center;
+        margin: auto;
+        font-weight: 900;
+        font-size: 37px;
+        text-transform: capitalize;
+    
+    }
+    .conp{
+      text-align: center;
+    }
+    .shopbtn{
+        color: white;
+        background-color: black;
+        padding: 13px 34px;
+        border-radius: 35%;
+        border: none;
+        font-size: 18px;
+        margin-left: 43%;
+        cursor: pointer;
+    }
+    
+    #trending{
+        /* border: 1px solid red; */
+        height: 600px;
+        width: 95%;
+        margin: auto;
+        display: flex;
+      
+    }
+    .trnd{
+      /* border: 1px solid red; */
+      width: 95%;
+      margin: auto;
+    }
+    #trending > div{
+        /* border: 1px solid red; */
+        height: 500px;
+        width: 35%;
+        margin-left: 1%;
+         
+    }
+    .title{
+        /* border: 1px solid red; */
+        display: flex;
+        height: 50px;
+        width: 100%;
+    }
+    
+    .leftc{
+        width: 100%;
+        /* border: 1px solid red; */
+    }
+    .thelatest{
+        /* border: 1px solid red; */
+        width: 95%;
+        margin: auto;
+      }
+      #latest{
+          /* border: 1px solid red; */
+          height: 900px;
+          width: 95%;
+          margin: auto;
+          display: flex;
+      }
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }

@@ -39,9 +39,8 @@
         <?php include 'components/footer.php'; ?>
     </div>
 
-
+    <script>src="scripts/navbar.js"</script>
 </body>
 
 </html>
 
-<script src="./script/navbar.js"></script>
