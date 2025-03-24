@@ -21,6 +21,7 @@
         <br>
     </div>
     <?php
+        session_start();
         include "connect-db.php";
 
         if($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -30,13 +31,18 @@
             if (empty($email) || empty($password)) {
                 echo "<script>alert('Vui lòng nhập đầy đủ email và mật khẩu!');</script>";
             } else {
-                $stmt = $db_server->prepare("SELECT * FROM accounts WHERE account_email = ?");
+                $stmt = $db_server->prepare("SELECT * FROM accounts as a
+                                            JOIN customers as c on a.account_id = c.account_id 
+                                            WHERE account_email = ?");
                 $stmt->bind_param("s",$email);
                 $stmt->execute();
                 $result = $stmt->get_result();
             
                 if ($row = $result->fetch_assoc()) {
                     if ($password === $row["account_passwd"]) {
+                        $_SESSION["user_id"] = $row["account_id"];
+                        $_SESSION["username"] = $row["customer_first_name"];
+                        $_SESSION["avatar"] = "/VUONGTINHSNEAKER/images/user-icon.png";
                         echo "<script>alert('Đăng nhập thành công!'); window.location.href='/VUONGTINHSNEAKER/main.php';</script>";
                     } else {
                         echo "<script>alert('Mật khẩu không chính xác!');</script>";    

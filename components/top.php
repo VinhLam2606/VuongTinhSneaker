@@ -19,17 +19,23 @@
 </head>
 
 <body>
+    <?php
+        session_start();
+    ?>
     <div id="top">
-        <div class="left">
-
-        </div>
         <div id="right">
             <p>Help</p>
-            <hr>
-            <p id="join_us_nav_bar">Join Us</p>
-            <hr>
-            <p id="sign_in_nav_bar">Sign In</p>
-
+            <?php if (isset($_SESSION["user_id"])): ?>
+                <div class="user-info">
+                    <img src="<?php echo $_SESSION['avatar']; ?>" alt="User Avatar" class="avatar">
+                    <span><?php echo $_SESSION['username']; ?></span>
+                    <a href="components/logout.php" class="logout-btn">Log out</a>
+                </div>
+            <?php else: ?>
+                <p id="join_us_nav_bar"><a href="components/signup.php">Join Us</a></p>
+                <hr>
+                <p id="sign_in_nav_bar"><a href="components/login.php">Sign In</a></p>
+            <?php endif; ?>
         </div>
     </div>
 </body>
