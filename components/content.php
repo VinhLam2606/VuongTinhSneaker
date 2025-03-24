@@ -27,8 +27,8 @@
             <p>ALEX EALA ON THE RISE</p>
             <p>Meet the Filipino tennis player who's smashing every challenge</p>
             <div>
-                <button>Read Now</button>
-                <button>Shop NikeCourt</button>
+            <button style="background-color: rgb(237, 115, 204);">Read Now</button>
+            <button style="background-color: rgb(237, 115, 204);">Shop NikeCourt</button>
             </div>
         </div>
         <div id="tara_image">
@@ -40,8 +40,8 @@
             <p>POWER YOUR PROGRESS</p>
             <p>Tara Nicolas is learning to be good to herself--and that starts with the right gear.</p>
             <div>
-                <button>Shop Training Essentials</button>
-                <button>Read More</button>
+            <button style="background-color: rgb(237, 115, 204);">Shop Training Essentials</button>
+            <button style="background-color: rgb(237, 115, 204);">Read More</button>
             </div>
         </div>
     </div>
@@ -120,7 +120,7 @@
         <div>
             <span>THE LEBRON XIX</span>
             <p>Step into LeBron's world where there's always space to dominate.</p>
-            <button id="black-but">Shop</button>
+            <button id="black-but" style="background-color: rgb(237, 115, 204);">Shop</button>
         </div>
         <div id="parent-lebron">
             <div id="lebron-dontmiss">
