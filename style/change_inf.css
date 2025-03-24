@@ -1,0 +1,94 @@
+#change_inf_box {
+    box-shadow: 0 1.6px 3.6px 0 rgb(0 0 0 / 13%), 0 0.3px 0.9px 0 rgb(0 0 0 / 11%);
+    font-family: Arial, Helvetica, sans-serif;
+    width: 25%;
+    margin: 8% auto 5%;
+    text-align: center;
+  }
+
+  #change_inf_box > div:first-child {
+    margin: auto;
+    width: 50px;
+    height: 40px;
+  }
+  .logo {
+    width: 125px;  
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    }
+
+    .avatar {
+        width: 70px;  
+        height: 70px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+    }
+    
+  #change_inf_box > h3 {
+    font-size: 20px;
+    color: rgb(238, 85, 197);
+  }
+  #change_inf_box > p {
+    font-size: 14px;
+    color: rgb(238, 85, 197);
+    text-align: left;
+    padding-left: 65px;
+  }
+  .form {
+    margin-top: 8%;
+  }
+  form input {
+    width: 93%;
+    height: 35px;
+    margin: 2% 0;
+    border: 1px solid rgb(224, 220, 220);
+    padding-left: 15px;
+    color: rgb(117, 117, 117);
+  }
+  input:focus {
+    outline: none;
+    border: 2px solid rgb(252, 176, 188);;
+  }
+  .gender {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 10px 0;
+}
+div.gender {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-self: center;
+    margin: 10px 0;
+}
+
+.gender label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    color: rgb(117, 117, 117);;
+}
+#change_inf  {
+    width: 98%;
+    height: 40px;
+    background: rgb(231, 37, 179);
+    color: white;
+    margin-bottom: 2%;
+    font-family: sans;
+    font-weight: bolder;
+    font-size: 16px;
+    letter-spacing: -0.5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#change_inf:hover {
+    background: rgb(200, 30, 150);
+  }
+  
