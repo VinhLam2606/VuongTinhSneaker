@@ -22,7 +22,7 @@
     <div id="bottom">
         <div class="left">
             <a href="main.php">
-                <img src="images/logo.png" alt="Vuong Tinh Logo" height="60px" width="120px">
+                <img src="../images/logo.png" alt="Vuong Tinh Logo" height="60px" width="120px">
             </a>
 
         </div>
@@ -42,7 +42,6 @@
             <input id="search_input" type="text" placeholder="Search">
         </div>
         <div class="right">
-            <a href="components/wishlist.php"><i id="hearth" class="far fa-heart" style="color: rgb(237, 115, 204);"></i></a>
             <a href="components/cart.php"><svg width="30px" height="30px" fill="#111" viewBox="0 0 24 24">
                     <path d="M16 7a1 1 0 0 1-1-1V3H9v3a1 1 0 0 1-2 0V3a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3a1 1 0 0 1-1 1z">
                     </path>

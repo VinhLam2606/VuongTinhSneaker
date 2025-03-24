@@ -1,384 +1,100 @@
-#main{
-    /* border: 1px solid red; */
-    height: 1000px;
-    width: 95%;
-    margin: auto;
-    display: flex;
+body {
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3f3;
 }
-#heading{
-    /* border: 1px solid red; */
-    height: 50px;
-    margin-bottom: 1%;
-    width: 95%;
-    margin: auto;
-    display: flex;
-    position: sticky;
-    top: 0;
-    background-color: white;
-}
-#center{
-    display: flex;
-    margin: auto;
 
+#shoes-container {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép xuống dòng */
+    justify-content: space-between; /* Căn đều khoảng cách giữa các card */
+    gap: 30px;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
 }
-#center>p{
-    margin-right: 15%;
-    cursor: pointer;
+
+.shoe-card {
+    flex: 0 0 calc(33.333% - 20px); /* 3 card mỗi hàng */
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.l{
-    /* border: 1px solid black; */
-    width: 50%;
-    height: 100%;
+
+.shoe-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 }
-.r{
-    /* border: 1px solid black; */
-    height: 100%;
-    
-    width: 50%;
+
+.shoe-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
 }
-.content{
-    /* border: 1px solid blue; */
-    height: 250px;
-    width: 50%;
-    margin: auto;
-    margin-top: 1%;
-}
-h5{
+
+.shoe-card h2 {
     font-size: 20px;
-    text-align: center;
-    margin: auto;
+    color: #333;
+    margin-bottom: 10px;
 }
-h1{
-    text-align: center;
-    margin: auto;
-    font-weight: 900;
-    font-size: 37px;
-    text-transform: capitalize;
 
+.shoe-card p {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
 }
-.conp{
-  text-align: center;
-}
-.shopbtn{
-    color: white;
-    background-color: black;
-    padding: 13px 34px;
-    border-radius: 35%;
-    border: none;
+
+.price {
+    font-weight: bold;
+    color: #111;
     font-size: 18px;
-    margin-left: 43%;
+}
+
+.cart-btn,
+.buy-btn {
+    margin: 10px 5px 0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
     cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
-#trending{
-    /* border: 1px solid red; */
-
-    height: 600px;
-    width: 95%;
-    margin: auto;
-    display: flex;
-  
-}
-.trnd{
-  /* border: 1px solid red; */
-  width: 95%;
-  margin: auto;
-}
-#trending > div{
-    /* border: 1px solid red; */
-    height: 500px;
-    width: 35%;
-    margin-left: 1%;
-     
+.cart-btn {
+    background-color: #f3f3f3;
+    color: #333;
 }
 
-.title{
-    /* border: 1px solid red; */
-    display: flex;
-    height: 50px;
-    width: 100%;
+.cart-btn:hover {
+    background-color: #ddd;
 }
 
-.leftc{
-    width: 100%;
-    /* border: 1px solid red; */
+.buy-btn {
+    background-color: #000;
+    color: #fff;
 }
-.thelatest{
-    /* border: 1px solid red; */
-    width: 95%;
-    margin: auto;
-  }
-  #latest{
-      /* border: 1px solid red; */
-      height: 900px;
-      width: 95%;
-      margin: auto;
-      display: flex;
-  }
- 
 
+.buy-btn:hover {
+    background-color: #333;
+}
 
-  @media screen and (min-width: 0px) and (max-width: 414px) {
+/* Responsive: 2 cards mỗi hàng trên tablet */
+@media (max-width: 992px) {
+    .shoe-card {
+        flex: 0 0 calc(50% - 15px);
+    }
+}
 
-    #main{
-        /* border: 1px solid red; */
-        height: 200px;
-        width: 100%;
-        margin: auto;
-        display: flex;
+/* Responsive: 1 card mỗi hàng trên điện thoại */
+@media (max-width: 600px) {
+    .shoe-card {
+        flex: 0 0 100%;
     }
-    #heading{
-        /* border: 1px solid red; */
-        height: 50px;
-        margin-bottom: 1%;
-        width: 95%;
-        margin: auto;
-        display: flex;
-        position: sticky;
-        top: 0;
-        background-color: white;
-    }
-    #center{
-        display: flex;
-        margin: auto;
-    
-    }
-    #center>p{
-        margin-right: 15%;
-        cursor: pointer;
-    }
-    .l{
-        /* border: 1px solid black; */
-        width: 50%;
-        height: 100%;
-    }
-    .r{
-        /* border: 1px solid black; */
-        height: 100%;
-        
-        width: 50%;
-    }
-    .content{
-        /* border: 1px solid blue; */
-        height: 250px;
-        width: 100%;
-        margin: auto;
-        margin-top: 1%;
-    }
-    h5{
-        font-size: 20px;
-        text-align: center;
-        margin: auto;
-    }
-    h1{
-        text-align: center;
-        margin: auto;
-        font-weight: 900;
-        font-size: 37px;
-        text-transform: capitalize;
-    
-    }
-    .conp{
-      text-align: center;
-    }
-    .shopbtn{
-        color: white;
-        /* background-color: black; */
-        padding: 13px 34px;
-        border-radius: 20px;
-        border: none;
-        font-size: 18px;
-        /* margin-left: 43%; */
-        cursor: pointer;
-        margin: auto;
-    }
-    
-    #trending{
-        /* border: 1px solid red; */
-        height: 700px;
-        width: 95%;
-        margin: auto;
-        overflow: auto;
-      
-    }
-    .trnd{
-      /* border: 1px solid red; */
-      width: 95%;
-      /* margin: auto; */
-      margin-top: 20%;
-    }
-    #trending > div{
-        /* border: 1px solid red; */
-        height: 500px;
-        width: 35%;
-        margin-left: 1%;
-         
-    }
-    .title{
-        /* border: 1px solid red; */
-        display: flex;
-        height: 50px;
-        width: 100%;
-    }
-    
-    .leftc{
-        width: 100%;
-        /* border: 1px solid red; */
-    }
-    .thelatest{
-        /* border: 1px solid red; */
-        width: 95%;
-        margin: auto;
-      }
-      #latest{
-          /* border: 1px solid red; */
-          height: 400px;
-          width: 100%;
-          margin: auto;
-          display: flex;
-      }
-
-
-
-
-
-
-
-
-
-
-  }
-
-  @media only screen and (min-width: 415px) and (max-width: 820px) {
-    #main{
-        /* border: 1px solid red; */
-        height: 1000px;
-        width: 95%;
-        margin: auto;
-        display: flex;
-    }
-    #heading{
-        /* border: 1px solid red; */
-        height: 50px;
-        margin-bottom: 1%;
-        width: 95%;
-        margin: auto;
-        display: flex;
-        position: sticky;
-        top: 0;
-        background-color: white;
-    }
-    #center{
-        display: flex;
-        margin: auto;
-    
-    }
-    #center>p{
-        margin-right: 15%;
-        cursor: pointer;
-    }
-    .l{
-        /* border: 1px solid black; */
-        width: 50%;
-        height: 100%;
-    }
-    .r{
-        /* border: 1px solid black; */
-        height: 100%;
-        
-        width: 50%;
-    }
-    .content{
-        /* border: 1px solid blue; */
-        height: 250px;
-        width: 50%;
-        margin: auto;
-        margin-top: 1%;
-    }
-    h5{
-        font-size: 20px;
-        text-align: center;
-        margin: auto;
-    }
-    h1{
-        text-align: center;
-        margin: auto;
-        font-weight: 900;
-        font-size: 37px;
-        text-transform: capitalize;
-    
-    }
-    .conp{
-      text-align: center;
-    }
-    .shopbtn{
-        color: white;
-        background-color: black;
-        padding: 13px 34px;
-        border-radius: 35%;
-        border: none;
-        font-size: 18px;
-        margin-left: 43%;
-        cursor: pointer;
-    }
-    
-    #trending{
-        /* border: 1px solid red; */
-        height: 600px;
-        width: 95%;
-        margin: auto;
-        display: flex;
-      
-    }
-    .trnd{
-      /* border: 1px solid red; */
-      width: 95%;
-      margin: auto;
-    }
-    #trending > div{
-        /* border: 1px solid red; */
-        height: 500px;
-        width: 35%;
-        margin-left: 1%;
-         
-    }
-    .title{
-        /* border: 1px solid red; */
-        display: flex;
-        height: 50px;
-        width: 100%;
-    }
-    
-    .leftc{
-        width: 100%;
-        /* border: 1px solid red; */
-    }
-    .thelatest{
-        /* border: 1px solid red; */
-        width: 95%;
-        margin: auto;
-      }
-      #latest{
-          /* border: 1px solid red; */
-          height: 900px;
-          width: 95%;
-          margin: auto;
-          display: flex;
-      }
-     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  }
+}
