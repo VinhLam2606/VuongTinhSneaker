@@ -3,13 +3,11 @@
   width: 99.9%;
 }
 #top {
-  /* border: 1px solid black; */
   height: 50px;
   display: flex;
   justify-content: space-between;
-  width: 99%;
-  margin: auto;
   background-color: #f5f5f5;
+  padding: 0 10px; /* Thêm padding để tránh sát viền */
 }
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -21,12 +19,35 @@ body {
   width: 10%;
 }
 #right {
-  /* border: 1px solid red; */
-  width: 12%;
   display: flex;
-  font-size: 14px;
-  cursor: pointer;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto; /* Đẩy hết phần tử sang phải */
 }
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Khoảng cách giữa avatar và tên */
+  position: relative;
+}
+
+.user-info .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-info .username {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  position: relative;
+  top: -25px; /* Đẩy tên lên trên 20px */
+  white-space: nowrap; /* Ngăn tên bị xuống dòng */
+}
+
 hr {
   height: 17px;
   margin-top: 5%;
@@ -93,6 +114,7 @@ hr {
 #center_phone {
   display: none;
 }
+
 
 @media screen and (min-width: 0px) and (max-width: 414px) {
   #navbar_suraj {

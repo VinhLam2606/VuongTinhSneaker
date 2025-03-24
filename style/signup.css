@@ -104,7 +104,7 @@ div.gender {
         cursor: pointer;
     }
   #sign_up:hover {
-      cursor: pointer;
+    background: rgb(200, 30, 150);
   }
   
       
