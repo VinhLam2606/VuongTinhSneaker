@@ -130,9 +130,9 @@
           <div>
               <div>
                   <h3 class="find_a_store_footer">FIND A STORE</h3>
-                  <h3 class="find_a_store_footer"">BECOME A MEMBER</h3>
-                  <h3 class="find_a_store_footer"">SIGN UP FOR EMAIL</h3>
-                  <h3 class="find_a_store_footer""> STUDENT DISCOUNTS</strong>
+                  <h3 class="find_a_store_footer">BECOME A MEMBER</h3>
+                  <h3 class="find_a_store_footer">SIGN UP FOR EMAIL</h3>
+                  <h3 class="find_a_store_footer"> STUDENT DISCOUNTS</strong>
                   <h3 class="find_a_store_footer">SEND US FEEDBACK</h3>
               </div>
               <div>

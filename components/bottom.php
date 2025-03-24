@@ -29,7 +29,7 @@
         <div id="center_phone">
         </div>
         <div class="center" style="color: rgb(237, 115, 204);">
-            <p id="men_page_nav_bar">Men</p>
+            <p id="men_page_nav_bar"><a href="./men.php">Men</a></p>
             <p id="women_page_nav_bar">Women</p>
             <p id="kid_page_nav_bar">Kids</p>
             <p id="customize_page_nav_bar">Customize</p>

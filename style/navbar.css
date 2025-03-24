@@ -28,7 +28,7 @@ body {
 .user-info {
   display: flex;
   align-items: center;
-  gap: 8px; /* Khoảng cách giữa avatar và tên */
+  gap: 8px; 
   position: relative;
 }
 

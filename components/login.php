@@ -43,6 +43,13 @@
                         $_SESSION["user_id"] = $row["account_id"];
                         $_SESSION["username"] = $row["customer_first_name"];
                         $_SESSION["avatar"] = "/VUONGTINHSNEAKER/images/user-icon.png";
+                        $_SESSION["userlastname"] = $row["customer_last_name"];
+                        $_SESSION["user_email"] = $row["account_email"];
+                        $_SESSION["user_dob"] = $row["customer_dob"];
+                        $_SESSION["user_address"] = $row["customer_address"];
+                        $_SESSION["user_gender"] = $row["customer_gender"];
+                        $_SESSION["user_phone_number"] = $row["customer_phone_number"];
+
                         echo "<script>alert('Đăng nhập thành công!'); window.location.href='/VUONGTINHSNEAKER/main.php';</script>";
                     } else {
                         echo "<script>alert('Mật khẩu không chính xác!');</script>";    

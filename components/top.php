@@ -28,7 +28,7 @@
             <?php if (isset($_SESSION["user_id"])): ?>
                 <div class="user-info">
                     <img src="<?php echo $_SESSION['avatar']; ?>" alt="User Avatar" class="avatar">
-                    <span><?php echo $_SESSION['username']; ?></span>
+                   <a href="components/information.php"> <span><?php echo $_SESSION['username']; ?></span> </a>
                     <a href="components/logout.php" class="logout-btn">Log out</a>
                 </div>
             <?php else: ?>
