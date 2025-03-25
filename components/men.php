@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <?php
-include 'connect-db.php';
+    include 'connect-db.php';
 
-$stmt = $db_server->prepare("SELECT * FROM shoe_type"); // Lấy tất cả giày
-$stmt->execute();
-$result = $stmt->get_result();
+    $record_ppage = 9;
+
+    $page = (isset($_REQUEST["page"])) ? $_REQUEST["page"] : 1;
+    if ($page < 1) $page = 1;
+
+    $start =  ($page - 1)*$record_ppage;
+
+    $total_stmt = $db_server->prepare("SELECT COUNT(*) FROM shoe_type");
+    $total_stmt->execute();
+    $total_stmt->bind_result($total_records);
+    $total_stmt->fetch();
+    $total_stmt->close();
+
+    $p_total = ceil($total_records/$record_ppage);
+
+    $stmt = $db_server->prepare("SELECT * FROM shoe_type LIMIT ?, ?");
+    $stmt->bind_param("ii", $start, $record_ppage);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
 ?>
 
 <html lang="en">
@@ -40,21 +57,38 @@ $result = $stmt->get_result();
 
     <div id="shoes-container">
         <?php
+
         while ($row = $result->fetch_assoc()) {
-            $name = $row['st_name'];
-            $image = $row['st_image_link'];
-            $gender = $row['st_gen'];
-            $price = $row['st_price'];
+
         ?>
+
             <div class="shoe-card">
-                <img src="<?php echo $image; ?>" alt="<?php echo $name; ?>">
-                <h2><?php echo $name; ?></h2>
-                <p>Giới tính: <?php echo $gender; ?></p>
-                <p class="price"><?php echo number_format($price); ?>₫</p>
+                <img src="<?php echo $row['st_image_link']; ?>" alt="<?php echo $row['st_name']; ?>">
+                <h2><?php echo $row['st_name']; ?></h2>
+                <p>Giới tính: <?php echo $row['st_gen']; ?></p>
+                <p class="price"><?php echo number_format($row['st_price']); ?>₫</p>
                 <button class="cart-btn">Add to Cart</button>
                 <button class="buy-btn">Buy</button>
             </div>
-        <?php } ?>
+        <?php 
+        } ?>
+        <div id="pagination">
+            <?php
+                if ($page > 1) {
+            ?>
+                 <a href="?page=1">First</a>
+                 <a href="?page=<?php echo $page - 1; ?>">&laquo; Prev</a>
+            <?php
+                }
+            ?>
+
+            <span>Page <?php echo $page; ?> of <?php echo $p_total; ?></span>
+
+            <?php if ($page < $p_total) : ?>
+            <a href="?page=<?php echo $page + 1; ?>">Next &raquo;</a>
+            <a href="?page=<?php echo $p_total; ?>">Last</a>
+            <?php endif; ?>
+        </div>
     </div>
 
 
