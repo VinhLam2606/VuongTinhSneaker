@@ -2,7 +2,27 @@
 <?php
 include 'connect-db.php';
 
-$stmt = $db_server->prepare("SELECT * FROM shoe_type"); // Lấy tất cả giày
+// Xử lý sắp xếp
+$sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
+
+switch ($sort) {
+    case 'price_asc':
+        $orderBy = "ORDER BY st_price ASC";
+        break;
+    case 'price_desc':
+        $orderBy = "ORDER BY st_price DESC";
+        break;
+    case 'name_asc':
+        $orderBy = "ORDER BY st_name ASC";
+        break;
+    case 'name_desc':
+        $orderBy = "ORDER BY st_name DESC";
+        break;
+    default:
+        $orderBy = "";
+}
+
+$stmt = $db_server->prepare("SELECT * FROM shoe_type $orderBy");
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
@@ -32,10 +52,23 @@ $result = $stmt->get_result();
         <div class="top">
             <?php include 'top.php'; ?>
         </div>
-
         <div class="bottom">
             <?php include 'bottom.php'; ?>
         </div>
+    </div>
+
+    <!-- Sort Dropdown -->
+    <div class="sort-container">
+        <form method="GET" id="sortForm">
+            <label for="sort">Sắp xếp:</label>
+            <select name="sort" id="sort" onchange="document.getElementById('sortForm').submit();">
+                <option value="default" <?php if ($sort == 'default') echo 'selected'; ?>>Mặc định</option>
+                <option value="price_asc" <?php if ($sort == 'price_asc') echo 'selected'; ?>>Giá tăng dần</option>
+                <option value="price_desc" <?php if ($sort == 'price_desc') echo 'selected'; ?>>Giá giảm dần</option>
+                <option value="name_asc" <?php if ($sort == 'name_asc') echo 'selected'; ?>>Tên A-Z</option>
+                <option value="name_desc" <?php if ($sort == 'name_desc') echo 'selected'; ?>>Tên Z-A</option>
+            </select>
+        </form>
     </div>
 
     <div id="shoes-container">
@@ -56,8 +89,6 @@ $result = $stmt->get_result();
             </div>
         <?php } ?>
     </div>
-
-
 </body>
 
 </html>

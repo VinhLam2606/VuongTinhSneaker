@@ -22,7 +22,7 @@
     <div id="bottom">
         <div class="left">
             <a href="main.php">
-                <img src="../images/logo.png" alt="Vuong Tinh Logo" height="60px" width="120px">
+                <img src="/VUONGTINHSNEAKER/images/logo.png" alt="Vuong Tinh Logo" height="60px" width="120px">
             </a>
 
         </div>
@@ -32,8 +32,6 @@
             <a href="components/men.php" class="nav-link">Men</a>
             <a href="components/women.php" class="nav-link">Women</a>
             <a href="components/kid.php" class="nav-link">Kid</a>
-            <a href="components/customize.php" class="nav-link">Customize</a>
-            <a href="components/sales.php" class="nav-link">Sale</a>
             <a href="components/feed.php" class="nav-link">Feed</a>
         </div>
 

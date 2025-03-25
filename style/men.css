@@ -85,16 +85,22 @@ body {
     background-color: #333;
 }
 
-/* Responsive: 2 cards mỗi hàng trên tablet */
-@media (max-width: 992px) {
-    .shoe-card {
-        flex: 0 0 calc(50% - 15px);
-    }
+.sort-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 50px;
 }
 
-/* Responsive: 1 card mỗi hàng trên điện thoại */
-@media (max-width: 600px) {
-    .shoe-card {
-        flex: 0 0 100%;
-    }
+.sort-container label {
+    font-size: 16px;
+    margin-right: 10px;
+    align-self: center;
 }
+
+.sort-container select {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
