@@ -84,6 +84,38 @@ body {
 .buy-btn:hover {
     background-color: #333;
 }
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%; 
+    position: relative;
+}
+
+
+#pagination a, #pagination span {
+    display: inline-block;
+    padding: 10px 16px;
+    border: 1px solid #333;
+    text-decoration: none;
+    color: #333;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
+}
+
+#pagination a:hover {
+    background-color: #333;
+    color: white;
+}
+
+#pagination span {
+    background-color: #f0f0f0;
+    color: #333;
+    border: none;
+    cursor: default;
+}
 
 .sort-container {
     display: flex;
