@@ -21,7 +21,7 @@
 <body>
     <div id="bottom">
         <div class="left">
-            <a href="main.php">
+            <a href="/VuongTinhSneaker/main.php">
                 <img src="/VUONGTINHSNEAKER/images/logo.png" alt="Vuong Tinh Logo" height="60px" width="120px">
             </a>
 
@@ -29,10 +29,10 @@
         <div id="center_phone">
         </div>
         <div class="center" style="color: rgb(237, 115, 204);">
-            <a href="components/men.php" class="nav-link">Men</a>
-            <a href="components/women.php" class="nav-link">Women</a>
-            <a href="components/kid.php" class="nav-link">Kid</a>
-            <a href="components/feed.php" class="nav-link">Feed</a>
+            <a href="/VuongTinhSneaker/components/men.php" class="nav-link">Men</a>
+            <a href="/VuongTinhSneaker/components/women.php" class="nav-link">Women</a>
+            <a href="/VuongTinhSneaker/components/kid.php" class="nav-link">Kid</a>
+            <a href="/VuongTinhSneaker/components/feed.php" class="nav-link">Feed</a>
         </div>
 
         <div class="search">
