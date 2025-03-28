@@ -80,6 +80,8 @@
             }
         });
     </script>
+    <script src="../scripts/add_to_cart.js"></script>
+
 </body>
 
 </html>

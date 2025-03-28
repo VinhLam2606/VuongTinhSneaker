@@ -7,15 +7,18 @@ body {
 
 #shoes-container {
     display: flex;
-    flex-wrap: wrap; /* Cho phép xuống dòng */
-    justify-content: space-between; /* Căn đều khoảng cách giữa các card */
+    flex-wrap: wrap;
+    /* Cho phép xuống dòng */
+    justify-content: space-between;
+    /* Căn đều khoảng cách giữa các card */
     gap: 30px;
     padding: 40px 20px;
     background-color: #f9f9f9;
 }
 
 .shoe-card {
-    flex: 0 0 calc(33.333% - 20px); /* 3 card mỗi hàng */
+    flex: 0 0 calc(33.333% - 20px);
+    /* 3 card mỗi hàng */
     box-sizing: border-box;
     background-color: #ffffff;
     border-radius: 16px;
@@ -84,17 +87,19 @@ body {
 .buy-btn:hover {
     background-color: #333;
 }
+
 #pagination {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    width: 100%; 
+    width: 100%;
     position: relative;
 }
 
 
-#pagination a, #pagination span {
+#pagination a,
+#pagination span {
     display: inline-block;
     padding: 10px 16px;
     border: 1px solid #333;
@@ -142,11 +147,9 @@ body {
     margin-top: 30px;
     margin-bottom: 50px;
     position: relative;
-  }
-  
-  /* Nếu muốn nó luôn nằm dưới cùng, dùng fixed */
-  /* Nhưng thường chỉ cần margin là đủ */
-  .page-link {
+}
+
+.page-link {
     display: inline-block;
     margin: 0 5px;
     padding: 8px 14px;
@@ -155,9 +158,68 @@ body {
     border-radius: 4px;
     text-decoration: none;
     transition: background-color 0.2s ease-in-out;
-  }
-  
-  .page-link:hover {
+}
+
+.page-link:hover {
     background-color: #ddd;
-  }
-  
+}
+
+.zoom-modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    z-index: 1000;
+    padding: 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.zoom-modal img {
+    max-width: 300px;
+    margin-bottom: 1rem;
+}
+
+.option-popup {
+    background: #f7f7f7;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.option-popup label {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.option-popup select {
+    width: 100%;
+    padding: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.popup-buttons button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #000;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.popup-buttons .cancel-btn {
+    background-color: #aaa;
+}
+

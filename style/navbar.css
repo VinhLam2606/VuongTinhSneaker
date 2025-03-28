@@ -113,6 +113,11 @@ hr {
   margin-left: 2%;
 }
 
+.right svg {
+  vertical-align: middle;
+  margin-top: 7px; /* tweak this value as needed */
+}
+
 #hearth {
   font-size: 32px;
   margin-top: 2%;
