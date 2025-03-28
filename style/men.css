@@ -136,3 +136,28 @@ body {
     border: 1px solid #ccc;
 }
 
+/* Giữ pagination ở giữa và cách đều phía dưới */
+#pagination {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    position: relative;
+  }
+  
+  /* Nếu muốn nó luôn nằm dưới cùng, dùng fixed */
+  /* Nhưng thường chỉ cần margin là đủ */
+  .page-link {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 8px 14px;
+    background-color: #f3f3f3;
+    color: #333;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .page-link:hover {
+    background-color: #ddd;
+  }
+  

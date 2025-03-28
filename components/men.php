@@ -1,67 +1,18 @@
 <!DOCTYPE html>
-<?php
-    include 'connect-db.php';
-
-// Xử lý sắp xếp
-$sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
-
-switch ($sort) {
-    case 'price_asc':
-        $orderBy = "ORDER BY st_price ASC";
-        break;
-    case 'price_desc':
-        $orderBy = "ORDER BY st_price DESC";
-        break;
-    case 'name_asc':
-        $orderBy = "ORDER BY st_name ASC";
-        break;
-    case 'name_desc':
-        $orderBy = "ORDER BY st_name DESC";
-        break;
-    default:
-        $orderBy = "";
-}
-
-$stmt = $db_server->prepare("SELECT * FROM shoe_type $orderBy");
-$stmt->execute();
-$result = $stmt->get_result();
-    $record_ppage = 9;
-
-    $page = (isset($_REQUEST["page"])) ? $_REQUEST["page"] : 1;
-    if ($page < 1) $page = 1;
-
-    $start =  ($page - 1)*$record_ppage;
-
-    $total_stmt = $db_server->prepare("SELECT COUNT(*) FROM shoe_type");
-    $total_stmt->execute();
-    $total_stmt->bind_result($total_records);
-    $total_stmt->fetch();
-    $total_stmt->close();
-
-    $p_total = ceil($total_records/$record_ppage);
-
-    $stmt = $db_server->prepare("SELECT * FROM shoe_type LIMIT ?, ?");
-    $stmt->bind_param("ii", $start, $record_ppage);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-?>
-
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/footer.css">
-    <link rel="stylesheet" href="../style/navbar.css">
-    <link rel="stylesheet" href="../style/index.css">
-    <link rel="stylesheet" href="../style/men.css">
-
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/footer.css" />
+    <link rel="stylesheet" href="../style/navbar.css" />
+    <link rel="stylesheet" href="../style/index.css" />
+    <link rel="stylesheet" href="../style/men.css" />
     <script src="https://kit.fontawesome.com/683b4b40e3.js" crossorigin="anonymous"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@900&family=Oswald:wght@700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" />
     <title>Nike, Just Do It. Nike.com</title>
 </head>
 
@@ -74,56 +25,61 @@ $result = $stmt->get_result();
             <?php include 'bottom.php'; ?>
         </div>
     </div>
-
-    <!-- Sort Dropdown -->
     <div class="sort-container">
-        <form method="GET" id="sortForm">
-            <label for="sort">Sắp xếp:</label>
-            <select name="sort" id="sort" onchange="document.getElementById('sortForm').submit();">
-                <option value="default" <?php if ($sort == 'default') echo 'selected'; ?>>Mặc định</option>
-                <option value="price_asc" <?php if ($sort == 'price_asc') echo 'selected'; ?>>Giá tăng dần</option>
-                <option value="price_desc" <?php if ($sort == 'price_desc') echo 'selected'; ?>>Giá giảm dần</option>
-                <option value="name_asc" <?php if ($sort == 'name_asc') echo 'selected'; ?>>Tên A-Z</option>
-                <option value="name_desc" <?php if ($sort == 'name_desc') echo 'selected'; ?>>Tên Z-A</option>
-            </select>
-        </form>
+        <label for="sort">Sort by:</label>
+        <select id="sort">
+            <option value="default">Default</option>
+            <option value="price_asc">Price: Low to High</option>
+            <option value="price_desc">Price: High to Low</option>
+            <option value="name_asc">Name: A to Z</option>
+            <option value="name_desc">Name: Z to A</option>
+        </select>
     </div>
 
-    <div id="shoes-container">
-        <?php
+    <div id="shoes-container"></div>
+    <div id="pagination"></div>
 
-        while ($row = $result->fetch_assoc()) {
+    <script>
+        let currentPage = 1;
+        let currentSort = 'default';
 
-        ?>
+        function loadShoes(page = 1, sort = 'default') {
+            fetch(`load_shoes.php?page=${page}&sort=${sort}`)
+                .then(res => res.text())
+                .then(data => {
+                    const parser = new DOMParser();
+                    const html = parser.parseFromString(data, 'text/html');
+                    document.getElementById('shoes-container').innerHTML =
+                        html.getElementById('shoes-container').innerHTML;
+                    document.getElementById('pagination').innerHTML =
+                        html.getElementById('pagination').innerHTML;
+                });
+        }
 
-            <div class="shoe-card">
-                <img src="<?php echo $row['st_image_link']; ?>" alt="<?php echo $row['st_name']; ?>">
-                <h2><?php echo $row['st_name']; ?></h2>
-                <p>Giới tính: <?php echo $row['st_gen']; ?></p>
-                <p class="price"><?php echo number_format($row['st_price']); ?>₫</p>
-                <button class="cart-btn">Add to Cart</button>
-                <button class="buy-btn">Buy</button>
-            </div>
-        <?php 
-        } ?>
-        <div id="pagination">
-            <?php
-                if ($page > 1) {
-            ?>
-                 <a href="?page=1">First</a>
-                 <a href="?page=<?php echo $page - 1; ?>">&laquo; Prev</a>
-            <?php
-                }
-            ?>
+        window.onload = () => loadShoes();
 
-            <span>Page <?php echo $page; ?> of <?php echo $p_total; ?></span>
+        document.getElementById('sort').addEventListener('change', function() {
+            currentSort = this.value;
+            currentPage = 1;
+            loadShoes(currentPage, currentSort);
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
 
-            <?php if ($page < $p_total) : ?>
-            <a href="?page=<?php echo $page + 1; ?>">Next &raquo;</a>
-            <a href="?page=<?php echo $p_total; ?>">Last</a>
-            <?php endif; ?>
-        </div>
-    </div>
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('page-link')) {
+                e.preventDefault();
+                currentPage = parseInt(e.target.dataset.page);
+                loadShoes(currentPage, currentSort);
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
