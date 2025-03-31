@@ -17,6 +17,9 @@
         rel="stylesheet">
     <title>Nike, Just Do It. Nike.com</title>
 </head>
+<?php 
+    $search_query = isset($_GET['query']) ? $_GET['query'] : ''; 
+?>
 
 <body>
     <div id="bottom">
@@ -34,10 +37,13 @@
             <a href="/VuongTinhSneaker/components/kid.php" class="nav-link">Kid</a>
         </div>
 
-        <div class="search">
-            <i id="icon" class="fas fa-search" style="color: rgb(237, 115, 204);"></i>
-            <input id="search_input" type="text" placeholder="Search">
-        </div>
+        <form method="GET" action="men.php">
+            <div class="search">
+                <i id="icon" class="fas fa-search" style="color: rgb(237, 115, 204);"></i>
+                <input id="search_input" type="text" name="query" placeholder="Search" value="<?php echo htmlspecialchars($search_query); ?>">
+                <button type="submit" style="display: none;">Search</button>
+            </div>
+        </form>
         <div class="right">
             <a href="/VuongTinhSneaker/components/cart.php">
                 <svg width="30px" height="30px" fill="rgb(237, 115, 204)" viewBox="0 0 24 24">
