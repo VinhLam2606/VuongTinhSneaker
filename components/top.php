@@ -32,9 +32,9 @@
                     <a href="components/logout.php" class="logout-btn">Log out</a>
                 </div>
             <?php else: ?>
-                <p id="join_us_nav_bar"><a href="components/signup.php">Join Us</a></p>
+                <p id="join_us_nav_bar"><a href="/VUONGTINHSNEAKER/components/signup.php">Join Us</a></p>
                 <hr>
-                <p id="sign_in_nav_bar"><a href="components/login.php">Sign In</a></p>
+                <p id="sign_in_nav_bar"><a href="/VUONGTINHSNEAKER/components/login.php">Sign In</a></p>
             <?php endif; ?>
         </div>
     </div>

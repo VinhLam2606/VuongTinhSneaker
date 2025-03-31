@@ -147,8 +147,8 @@
 }
 
 .quantity-controls button {
-    background-color: #0071e3;
-    color: white;
+    background-color: white;
+    color: black;
     border: none;
     padding: 5px 10px;
     font-size: 18px;
@@ -158,7 +158,7 @@
 }
 
 .quantity-controls button:hover {
-    background-color: #005bb5;
+    background-color: rgb(237, 115, 204);;
 }
 
 .quantity-controls span {
@@ -169,7 +169,7 @@
 }
 
 .remove-btn {
-    background-color: #ff4d4d;
+    background-color: black;
     color: white;
     border: none;
     padding: 6px 12px;

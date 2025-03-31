@@ -42,7 +42,7 @@
                 </div>
                 <div>
                     <p id="subtotal">0₫</p>
-                    <p>150₫</p>
+                    <p>30.000₫</p>
                     <hr class="carthr" />
                     <p id="grandtotal">0₫</p>
                     <hr class="carthr" />
@@ -67,7 +67,7 @@
             if (cart.length === 0) {
                 cartItems.innerHTML = '<p>Your cart is empty.</p>';
                 document.getElementById('subtotal').textContent = '0₫';
-                document.getElementById('grandtotal').textContent = '150₫';
+                document.getElementById('grandtotal').textContent = '30.000₫';
                 return;
             }
 
@@ -102,7 +102,7 @@
             });
 
             document.getElementById('subtotal').textContent = formatCurrency(subtotal);
-            document.getElementById('grandtotal').textContent = formatCurrency(subtotal + 150);
+            document.getElementById('grandtotal').textContent = formatCurrency(subtotal + 30000);
         }
 
         document.addEventListener('click', function(e) {

@@ -32,7 +32,6 @@
             <a href="/VuongTinhSneaker/components/men.php" class="nav-link">Men</a>
             <a href="/VuongTinhSneaker/components/women.php" class="nav-link">Women</a>
             <a href="/VuongTinhSneaker/components/kid.php" class="nav-link">Kid</a>
-            <a href="/VuongTinhSneaker/components/feed.php" class="nav-link">Feed</a>
         </div>
 
         <div class="search">

@@ -43,17 +43,18 @@
         let currentSort = 'default';
 
         function loadShoes(page = 1, sort = 'default') {
-            fetch(`load_shoes.php?page=${page}&sort=${sort}`)
-                .then(res => res.text())
-                .then(data => {
-                    const parser = new DOMParser();
-                    const html = parser.parseFromString(data, 'text/html');
-                    document.getElementById('shoes-container').innerHTML =
-                        html.getElementById('shoes-container').innerHTML;
-                    document.getElementById('pagination').innerHTML =
-                        html.getElementById('pagination').innerHTML;
-                });
-        }
+    fetch(`load_shoes.php?page=${page}&sort=${sort}&gender=Men`)
+        .then(res => res.text())
+        .then(data => {
+            const parser = new DOMParser();
+            const html = parser.parseFromString(data, 'text/html');
+            document.getElementById('shoes-container').innerHTML =
+                html.getElementById('shoes-container').innerHTML;
+            document.getElementById('pagination').innerHTML =
+                html.getElementById('pagination').innerHTML;
+        });
+}
+
 
         window.onload = () => loadShoes();
 
