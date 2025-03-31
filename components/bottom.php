@@ -28,19 +28,19 @@
         </div>
         <div id="center_phone">
         </div>
-        <div class="center" style="color: rgb(237, 115, 204);">
+        <div class="center">
             <a href="/VuongTinhSneaker/components/men.php" class="nav-link">Men</a>
             <a href="/VuongTinhSneaker/components/women.php" class="nav-link">Women</a>
             <a href="/VuongTinhSneaker/components/kid.php" class="nav-link">Kid</a>
         </div>
 
         <div class="search">
-            <i id="icon" class="fas fa-search" style="color: rgb(237, 115, 204);"></i>
+            <i id="icon" class="fas fa-search"></i>
             <input id="search_input" type="text" placeholder="Search">
         </div>
         <div class="right">
             <a href="/VuongTinhSneaker/components/cart.php">
-                <svg width="30px" height="30px" fill="rgb(237, 115, 204)" viewBox="0 0 24 24">
+                <svg width="30px" height="30px" viewBox="0 0 24 24">
                     <path d="M16 7a1 1 0 0 1-1-1V3H9v3a1 1 0 0 1-2 0V3a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3a1 1 0 0 1-1 1z"></path>
                     <path d="M20 5H4a2 2 0 0 0-2 2v13a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a2 2 0 0 0-2-2zm0 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7h16z"></path>
                 </svg>

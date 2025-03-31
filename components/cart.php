@@ -54,86 +54,34 @@
         </div>
     </div>
 
+    <script src="../scripts/cart.js"></script>
     <script>
-        function formatCurrency(value) {
-            return Number(value).toLocaleString('vi-VN') + '₫';
-        }
+        document.getElementById("checkoutbut").addEventListener("click", function() {
+            const checkboxes = document.querySelectorAll('.checkout-checkbox:checked');
+            const selectedItems = [];
 
-        function loadCart() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const cartItems = document.getElementById('cart-items');
-            cartItems.innerHTML = '';
+            checkboxes.forEach(checkbox => {
+                const index = parseInt(checkbox.dataset.index);
+                selectedItems.push(index);
+            });
 
-            if (cart.length === 0) {
-                cartItems.innerHTML = '<p>Your cart is empty.</p>';
-                document.getElementById('subtotal').textContent = '0₫';
-                document.getElementById('grandtotal').textContent = '30.000₫';
+            if (selectedItems.length === 0) {
+                alert("Please select at least one item to checkout.");
                 return;
             }
 
-            let subtotal = 0;
-
-            cart.forEach((item, index) => {
-                const price = parseFloat(item.price) || 0;
-                const quantity = parseInt(item.quantity) || 1;
-                const itemTotal = price * quantity;
-                subtotal += itemTotal;
-
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'cart-items';
-                itemDiv.innerHTML = `
-                <div>
-                    <img src="${item.image}" width="100" alt="${item.name}">
-                </div>
-                <div>
-                    <p><strong>${item.name}</strong></p>
-                    <p>Size: ${item.size}</p>
-                    <p>Price: ${formatCurrency(price)}</p>
-                    <p>Total: ${formatCurrency(itemTotal)}</p>
-                    <div class="quantity-controls">
-                        <button class="decrease-btn" data-index="${index}">-</button>
-                        <span class="quantity">${quantity}</span>
-                        <button class="increase-btn" data-index="${index}">+</button>
-                    </div>
-                    <button class="remove-btn" data-index="${index}">Remove</button>
-                </div>
-            `;
-                cartItems.appendChild(itemDiv);
-            });
-
-            document.getElementById('subtotal').textContent = formatCurrency(subtotal);
-            document.getElementById('grandtotal').textContent = formatCurrency(subtotal + 30000);
-        }
-
-        document.addEventListener('click', function(e) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-            if (e.target.classList.contains('remove-btn')) {
-                const index = parseInt(e.target.dataset.index);
-                cart.splice(index, 1);
-                localStorage.setItem('cart', JSON.stringify(cart));
-                loadCart();
-            }
-
-            if (e.target.classList.contains('increase-btn')) {
-                const index = parseInt(e.target.dataset.index);
-                cart[index].quantity += 1;
-                localStorage.setItem('cart', JSON.stringify(cart));
-                loadCart();
-            }
-
-            if (e.target.classList.contains('decrease-btn')) {
-                const index = parseInt(e.target.dataset.index);
-                if (cart[index].quantity > 1) {
-                    cart[index].quantity -= 1;
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    loadCart();
-                }
-            }
+            <?php if (isset($_SESSION["user_id"])): ?>
+                localStorage.setItem('selectedCheckoutItems', JSON.stringify(selectedItems));
+                window.location.href = "checkout.php";
+            <?php else: ?>
+                alert("Please login to continue!");
+                window.location.href = "login.php";
+            <?php endif; ?>
         });
 
         window.onload = loadCart;
     </script>
+
 
 </body>
 

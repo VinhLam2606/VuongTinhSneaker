@@ -141,10 +141,9 @@ hr {
   margin-right: 8%;
   cursor: pointer;
   text-decoration: none;
-  color: rgb(237, 115, 204);
-  /* Keep the color */
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
+  color:black;
 }
 
 .center>a.nav-link:hover {

@@ -6,8 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/footer.css">
-    <link rel="stylesheet" href="./style/login.css">
-    <link rel="stylesheet" href="./style/signup.css">
     <link rel="stylesheet" href="./style/navbar.css">
     <link rel="stylesheet" href="./style/index.css">
     <script src="https://kit.fontawesome.com/683b4b40e3.js" crossorigin="anonymous"></script>
@@ -26,10 +24,6 @@
         <div id="on_rise">
             <p>ALEX EALA ON THE RISE</p>
             <p>Meet the Filipino tennis player who's smashing every challenge</p>
-            <div>
-            <button style="background-color: rgb(237, 115, 204);">Read Now</button>
-            <button style="background-color: rgb(237, 115, 204);">Shop NikeCourt</button>
-            </div>
         </div>
         <div id="tara_image">
             <p>Featured</p>
@@ -39,15 +33,11 @@
             <p>Training Essentials</p>
             <p>POWER YOUR PROGRESS</p>
             <p>Tara Nicolas is learning to be good to herself--and that starts with the right gear.</p>
-            <div>
-            <button style="background-color: rgb(237, 115, 204);">Shop Training Essentials</button>
-            <button style="background-color: rgb(237, 115, 204);">Read More</button>
-            </div>
         </div>
     </div>
 
     <div id="faruk">
-        <div id="ekiden_div1" style="color: rgb(237, 115, 204);">
+        <div id="ekiden_div1">
             <p>EKIDEN PACK</p>
             <h1 id="faruk_rise_together">RISE TOGETHER</h1>
             <p>“EKIDEN PACK” is a running collection inspired by the mountainous terrain that Ekiden Runners take on for
@@ -55,7 +45,6 @@
                 represent the sunrise as the Race begins, and the passionate energy surrounding the event. The Dazzle
                 Camo pattern draws inspiration from cityscapes including the Scramble Crossing in Tokyo. Let’s rise
                 together, to a new era.</p>
-            <button style="background-color: rgb(237, 115, 204);">Shop</button>
         </div>
 
         <div id="ekiden_container">
@@ -73,7 +62,6 @@
                         <p class="ekiden_name">Nike Air Zoom Alphafly NEXT% Flyknit</p>
                         <p>Nike Air Zoom Alphafly NEXT% Flyknit
                             Gear up for your next personal best with the greatest energy return of all our shoes</p>
-                        <button>Shop</button>
                     </div>
 
                 </div>
@@ -84,7 +72,6 @@
                         <p class="ekiden_name">Nike ZoomX Vaporfly NEXT% 2</p>
                         <p>Nike ZoomX Vaporfly NEXT% 2
                             The next evolution of speed for reaching new goals and records, from 10Ks to marathons.</p>
-                        <button>Shop</button>
                     </div>
 
                 </div>
@@ -97,7 +84,6 @@
                         <p>Nike Air Zoom Pegasus 38
                             A workhorse built to help power you through every mile of the race with a spring in your
                             step.</p>
-                        <button>Shop</button>
                     </div>
 
                 </div>
@@ -120,17 +106,14 @@
         <div>
             <span>THE LEBRON XIX</span>
             <p>Step into LeBron's world where there's always space to dominate.</p>
-            <button id="black-but" style="background-color: rgb(237, 115, 204);">Shop</button>
         </div>
         <div id="parent-lebron">
             <div id="lebron-dontmiss">
                 <div>
                     <p>Blazer Low '77 Jumbo Just Dropped</p>
-                    <button id="white-but">Shop</button>
                 </div>
                 <div>
                     <p>Recharge With Colour</p>
-                    <button id="white-but">Shop</button>
                 </div>
             </div>
         </div>

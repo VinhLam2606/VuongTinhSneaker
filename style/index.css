@@ -17,7 +17,6 @@
 #tara_image>p {
   font-size: 22px;
   margin-bottom: 1%;
-  color: rgb(237, 115, 204);
 }
 
 #training_ess,
@@ -28,7 +27,6 @@
   margin: 3% auto;
   margin-bottom: 6%;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: rgb(237, 115, 204);
 }
 
 #training_ess {
@@ -69,12 +67,11 @@
   border: none;
   color: white;
   margin: 0 8px;
-  background-color: black;
 }
 
 #training_ess>div>button:hover,
 #on_rise>div>button:hover {
-  background-color: rgb(49, 49, 49);
+  background-color: rgb(130, 90, 119);
 }
 
 #on_rise>div>button:nth-child(2) {
@@ -213,8 +210,6 @@
   width: 98%;
   border: 1px solid transparent;
   padding-bottom: 20px;
-  color: rgb(237, 115, 204);
-
 }
 
 #lebron-div>div:nth-child(1) {

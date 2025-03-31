@@ -28,8 +28,8 @@
             <?php if (isset($_SESSION["user_id"])): ?>
                 <div class="user-info">
                     <img src="<?php echo $_SESSION['avatar']; ?>" alt="User Avatar" class="avatar">
-                   <a href="components/information.php"> <span><?php echo $_SESSION['username']; ?></span> </a>
-                    <a href="components/logout.php" class="logout-btn">Log out</a>
+                   <a href="/VUONGTINHSNEAKER/components/information.php"> <span><?php echo $_SESSION['username']; ?></span> </a>
+                    <a href="/VUONGTINHSNEAKER/components/logout.php" class="logout-btn">Log out</a>
                 </div>
             <?php else: ?>
                 <p id="join_us_nav_bar"><a href="/VUONGTINHSNEAKER/components/signup.php">Join Us</a></p>

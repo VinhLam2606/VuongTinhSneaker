@@ -158,7 +158,7 @@
 }
 
 .quantity-controls button:hover {
-    background-color: rgb(237, 115, 204);;
+    background-color: #bdbcbc;
 }
 
 .quantity-controls span {
@@ -184,7 +184,6 @@
 }
 
 #checkoutbut {
-    background-color: #28a745;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -195,6 +194,3 @@
     transition: 0.3s;
 }
 
-#checkoutbut:hover {
-    background-color: #218838;
-}
