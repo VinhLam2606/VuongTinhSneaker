@@ -6,12 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/footer.css">
-    <link rel="stylesheet" href="./style/login.css">
-    <link rel="stylesheet" href="./style/signup.css">
     <link rel="stylesheet" href="./style/navbar.css">
     <link rel="stylesheet" href="./style/index.css">
-
-
     <script src="https://kit.fontawesome.com/683b4b40e3.js" crossorigin="anonymous"></script>
     <link nes="" rel="icon" sizes="128x128" href="images/logo.png">
     <link
@@ -23,11 +19,11 @@
 <body>
     <div id="top_bar">
         <div class="top">
-            <?php include 'components/top.php'; ?>
+            <?php include './components/top.php'; ?>
         </div>
 
         <div class="bottom">
-            <?php include 'components/bottom.php'; ?>
+            <?php include './components/bottom.php'; ?>
         </div>
     </div>
 
