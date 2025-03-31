@@ -17,7 +17,6 @@ switch ($sort) {
     default: $orderBy = "";
 }
 
-// Xử lý tìm kiếm nhiều từ khóa
 $filters = [];
 $params = [];
 $param_types = "";
@@ -32,7 +31,6 @@ if (!empty($search_query)) {
         $param_types .= "s";
     }
 
-    // Nếu toàn bộ từ khóa là số, tìm trong st_price
     if (is_numeric($search_query)) {
         $name_conditions[] = "st_price = ?";
         $params[] = (float)$search_query;
@@ -42,17 +40,14 @@ if (!empty($search_query)) {
     $filters[] = "(" . implode(" OR ", $name_conditions) . ")";
 }
 
-// Lọc theo giới tính
 if (!empty($gender)) {
     $filters[] = "st_gen = ?";
     $params[] = $gender;
     $param_types .= "s";
 }
 
-// Ghép điều kiện WHERE
 $where_clause = !empty($filters) ? "WHERE " . implode(" AND ", $filters) : "";
 
-// Đếm tổng số bản ghi
 $total_query = "SELECT COUNT(*) FROM shoe_type $where_clause";
 $total_stmt = $db_server->prepare($total_query);
 if (!empty($params)) {
@@ -65,13 +60,13 @@ $total_stmt->close();
 
 $p_total = ceil($total_records / $record_ppage);
 
-// Lấy dữ liệu sản phẩm
+
 $query = "SELECT st.*, c.c_number FROM shoe_type st
           LEFT JOIN capacity c ON st.st_id = c.st_id
           $where_clause $orderBy LIMIT ?, ?";
 $stmt = $db_server->prepare($query);
 
-// Thêm pagination vào tham số
+
 $param_types .= "ii";
 array_push($params, $start, $record_ppage);
 

@@ -37,13 +37,15 @@
             <a href="/VuongTinhSneaker/components/kid.php" class="nav-link">Kid</a>
         </div>
 
-        <form method="GET" action="men.php">
+        <form method="GET" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
             <div class="search">
                 <i id="icon" class="fas fa-search" style="color: rgb(237, 115, 204);"></i>
-                <input id="search_input" type="text" name="query" placeholder="Search" value="<?php echo htmlspecialchars($search_query); ?>">
+                <input id="search_input" type="text" name="query" placeholder="Search" 
+                    value="<?php echo htmlspecialchars($search_query); ?>">
                 <button type="submit" style="display: none;">Search</button>
             </div>
         </form>
+
         <div class="right">
             <a href="/VuongTinhSneaker/components/cart.php">
                 <svg width="30px" height="30px" viewBox="0 0 24 24">
