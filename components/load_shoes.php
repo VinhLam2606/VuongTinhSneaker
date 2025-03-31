@@ -7,20 +7,20 @@ $record_ppage = 9;
 $start = ($page - 1) * $record_ppage;
 
 switch ($sort) {
-    case 'price_asc':
-        $orderBy = "ORDER BY st_price ASC";
-        break;
-    case 'price_desc':
-        $orderBy = "ORDER BY st_price DESC";
-        break;
-    case 'name_asc':
-        $orderBy = "ORDER BY st_name ASC";
-        break;
-    case 'name_desc':
-        $orderBy = "ORDER BY st_name DESC";
-        break;
-    default:
-        $orderBy = "";
+  case 'price_asc':
+    $orderBy = "ORDER BY st_price ASC";
+    break;
+  case 'price_desc':
+    $orderBy = "ORDER BY st_price DESC";
+    break;
+  case 'name_asc':
+    $orderBy = "ORDER BY st_name ASC";
+    break;
+  case 'name_desc':
+    $orderBy = "ORDER BY st_name DESC";
+    break;
+  default:
+    $orderBy = "";
 }
 
 $total_stmt = $db_server->prepare("SELECT COUNT(*) FROM shoe_type");
@@ -31,7 +31,11 @@ $total_stmt->close();
 
 $p_total = ceil($total_records / $record_ppage);
 
-$stmt = $db_server->prepare("SELECT * FROM shoe_type $orderBy LIMIT ?, ?");
+$stmt = $db_server->prepare("SELECT st.*, c.c_number 
+                                    FROM shoe_type st
+                                    LEFT JOIN capacity c ON st.st_id = c.st_id
+                                    $orderBy LIMIT ?, ?
+");
 $stmt->bind_param("ii", $start, $record_ppage);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -40,7 +44,7 @@ $result = $stmt->get_result();
 <!-- Bọc sản phẩm -->
 <div id="shoes-container">
   <?php while ($row = $result->fetch_assoc()): ?>
-    <div class="shoe-card">
+    <div class="shoe-card" data-stock="<?= $row['c_number']; ?>" data-id="<?= $row['st_id']; ?>">
       <img src="<?= $row['st_image_link']; ?>" alt="<?= $row['st_name']; ?>">
       <h2><?= $row['st_name']; ?></h2>
       <p>Gender: <?= $row['st_gen']; ?></p>
@@ -48,6 +52,7 @@ $result = $stmt->get_result();
       <button class="cart-btn">Add to Cart</button>
       <button class="buy-btn">Buy</button>
     </div>
+
   <?php endwhile; ?>
 </div>
 
