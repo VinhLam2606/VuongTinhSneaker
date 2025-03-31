@@ -8,17 +8,14 @@ body {
 #shoes-container {
     display: flex;
     flex-wrap: wrap;
-    /* Cho phép xuống dòng */
-    justify-content: space-between;
-    /* Căn đều khoảng cách giữa các card */
-    gap: 30px;
+    justify-content: flex-start; /* Căn trái thay vì dàn đều */
+    gap: 20px; /* Khoảng cách giữa các card */
     padding: 40px 20px;
     background-color: #f9f9f9;
 }
 
 .shoe-card {
-    flex: 0 0 calc(33.333% - 20px);
-    /* 3 card mỗi hàng */
+    flex: 0 0 calc(33.333% - 20px); /* 3 card mỗi hàng */
     box-sizing: border-box;
     background-color: #ffffff;
     border-radius: 16px;
@@ -86,40 +83,6 @@ body {
 
 .buy-btn:hover {
     background-color: #333;
-}
-
-#pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    position: relative;
-}
-
-
-#pagination a,
-#pagination span {
-    display: inline-block;
-    padding: 10px 16px;
-    border: 1px solid #333;
-    text-decoration: none;
-    color: #333;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s, color 0.3s;
-}
-
-#pagination a:hover {
-    background-color: #333;
-    color: white;
-}
-
-#pagination span {
-    background-color: #f0f0f0;
-    color: #333;
-    border: none;
-    cursor: default;
 }
 
 .sort-container {
@@ -222,4 +185,3 @@ body {
 .popup-buttons .cancel-btn {
     background-color: #aaa;
 }
-
