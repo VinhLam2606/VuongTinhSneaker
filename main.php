@@ -26,17 +26,22 @@
             <?php include './components/bottom.php'; ?>
         </div>
     </div>
+    <?php 
+        if (isset($_GET['search']) && !empty($_GET['search'])) { 
+            echo '<div class="products">';
+            include 'components/products.php';
+            echo '</div>';
+        } else {
+    ?> 
+        <div class="content">
+            <?php include 'components/content.php'; ?>
+        </div>
 
-    <div class="content">
-        <?php include 'components/content.php'; ?>
-    </div>
+        <div class="footer">
+            <?php include 'components/footer.php'; ?>
+        </div>
 
-    <div class="footer">
-        <?php include 'components/footer.php'; ?>
-    </div>
-
+    <?php } ?>
     <script>src="scripts/navbar.js"</script>
-</body>
-
 </html>
 
