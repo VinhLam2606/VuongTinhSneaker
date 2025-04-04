@@ -1,7 +1,3 @@
-<?php
-
-$isAdmin = isset($_SESSION["user_is_admin"]) ? $_SESSION["user_is_admin"] : 0; // Default to 0 if not set
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,20 +14,27 @@ $isAdmin = isset($_SESSION["user_is_admin"]) ? $_SESSION["user_is_admin"] : 0; /
         rel="stylesheet" />
     <title>Vương Tình Sneaker</title>
 </head>
-
+<?php 
+    $search_query = isset($_GET['query']) ? $_GET['query'] : ''; 
+?>
 <body>
     <div id="top_bar">
         <div class="top">
             <?php include 'top.php'; ?>
         </div>
-        <div class="bottom">
-            <?php include 'bottom.php'; ?>
-        </div>
     </div>
-    
-    <div id="admin-check" data-isAdmin="<?php echo $isAdmin; ?>"></div>
+   
 
-    <div class="sort-container">
+    <div class="sort-admin-container">
+        <form method="GET" action="<?php echo htmlspecialchars('admin_page.php'); ?>">
+             <div class="search-admin">
+                <i id="icon" class="fas fa-search" style="color: black;"></i>
+                <input id="search_input" type="text" name="query" placeholder="Search" 
+                value="<?php echo htmlspecialchars($search_query); ?>">
+                <button type="submit" style="display: none;">Search</button>
+            </div>
+        </form>
+
         <label for="sort">Sort by:</label>
         <select id="sort">
             <option value="default">Default</option>
@@ -44,9 +47,11 @@ $isAdmin = isset($_SESSION["user_is_admin"]) ? $_SESSION["user_is_admin"] : 0; /
 
     <div id="shoes-container"></div>
     <div id="pagination"></div>
-    <div id="gender-container" data-gender="Men" ></div>
-    <script src="../scripts/pagination.js"> </script>
-    <script src="../scripts/add_to_cart.js"></script>
+    <div id="gender-container" 
+        data-gender="" 
+        data-admin="<?php echo isset($_SESSION["user_is_admin"]) ? $_SESSION["user_is_admin"] : 0; ?>">
+    </div>
+    <script src="/VUONGTINHSNEAKER/scripts/pagination.js"> </script>
 
 </body>
 

@@ -16,7 +16,7 @@
 
   #login_box > h3 {
     font-size: 20px;
-    color: rgb(231, 37, 179);
+    color: black;
   }
 
   #login_box > p {
@@ -29,7 +29,7 @@
     font-size: 15px;
     margin: 2% 0;
     margin-bottom: 5px;
-    color: rgb(237, 110, 203);
+    color: black;
   }
   #login_form {
     margin-top: 8%;
@@ -44,13 +44,13 @@
   }
   #login_form > input:focus {
     outline: none;
-    border: 2px solid rgb(252, 176, 188);
+    border: 2px solid black;
   }
 
   #sign_in {
     width: 98%;
     height: 40px;
-    background: rgb(231, 37, 179);
+    background: black;
     color: white;
     margin-bottom: 2%;
     font-family: sans;
@@ -63,7 +63,7 @@
   }
 
 #sign_in:hover {
-    background: rgb(200, 30, 150); /* Có thể thay đổi màu khi hover */
+    background: black; /* Có thể thay đổi màu khi hover */
 }
 
   

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -26,6 +26,7 @@
             <?php include 'components/bottom.php'; ?>
         </div>
     </div>
+
     <?php 
     if (isset($_GET['search']) && !empty($_GET['search'])) { 
     ?>

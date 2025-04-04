@@ -29,11 +29,11 @@
     
   #change_inf_box > h3 {
     font-size: 20px;
-    color: rgb(238, 85, 197);
+    color: black;
   }
   #change_inf_box > p {
     font-size: 14px;
-    color: rgb(238, 85, 197);
+    color: black;
     text-align: left;
     padding-left: 65px;
   }
@@ -50,7 +50,7 @@
   }
   input:focus {
     outline: none;
-    border: 2px solid rgb(252, 176, 188);;
+    border: 2px solid black;
   }
   .gender {
     display: flex;
@@ -77,7 +77,7 @@ div.gender {
 #change_inf  {
     width: 98%;
     height: 40px;
-    background: rgb(231, 37, 179);
+    background: black;
     color: white;
     margin-bottom: 2%;
     font-family: sans;
@@ -89,6 +89,6 @@ div.gender {
     cursor: pointer;
 }
 #change_inf:hover {
-    background: rgb(200, 30, 150);
+    background: black;
   }
   

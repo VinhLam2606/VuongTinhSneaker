@@ -23,7 +23,6 @@
     <?php
         session_start();
         include "connect-db.php";
-
         if($_SERVER["REQUEST_METHOD"] === "POST") {
             $email = $_POST["email"] ?? "";
             $password = $_POST["password"] ?? "";
@@ -37,7 +36,7 @@
                 $stmt->bind_param("s",$email);
                 $stmt->execute();
                 $result = $stmt->get_result();
-            
+                
                 if ($row = $result->fetch_assoc()) {
                     if ($password === $row["account_passwd"]) {
                         $_SESSION["user_id"] = $row["account_id"];
@@ -49,8 +48,14 @@
                         $_SESSION["user_address"] = $row["customer_address"];
                         $_SESSION["user_gender"] = $row["customer_gender"];
                         $_SESSION["user_phone_number"] = $row["customer_phone_number"];
-
-                        echo "<script>alert('Đăng nhập thành công!'); window.location.href='/VUONGTINHSNEAKER/main.php';</script>";
+                        $_SESSION["user_is_admin"] = $row["is_admin"];
+                        if ($_SESSION["user_is_admin"] === 1) {
+                            echo "<script>alert('Đăng nhập thành công!'); window.location.href='/VUONGTINHSNEAKER/components/admin_page.php';</script>";
+                        }
+                        else {
+                           
+                            echo "<script>alert('Đăng nhập thành công!'); window.location.href='/VUONGTINHSNEAKER/main.php';</script>";
+                        }
                     } else {
                         echo "<script>alert('Mật khẩu không chính xác!');</script>";    
                     }
@@ -62,6 +67,7 @@
         }
 
     ?>
+
 </body>
 
 </html>

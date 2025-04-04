@@ -82,7 +82,11 @@ hr {
   /* margin-top: 6%; */
   padding-bottom: 15%;
 }
-
+.search-admin {
+  width: 13%;
+  margin-left: 13%;
+  display: flex;
+}
 .search {
   width: 13%;
   margin-left: 13%;
