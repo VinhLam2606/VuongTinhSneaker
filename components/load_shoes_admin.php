@@ -60,12 +60,9 @@ $total_stmt->close();
 
 $p_total = ceil($total_records / $record_ppage);
 
-
-$query = "SELECT st.*, c.c_number FROM shoe_type st
-          LEFT JOIN capacity c ON st.st_id = c.st_id
+$query = "SELECT * FROM shoe_type st
           $where_clause $orderBy LIMIT ?, ?";
 $stmt = $db_server->prepare($query);
-
 
 $param_types .= "ii";
 array_push($params, $start, $record_ppage);
@@ -77,13 +74,13 @@ $result = $stmt->get_result();
 
 <div id="shoes-container">
   <?php while ($row = $result->fetch_assoc()): ?>
-    <div class="shoe-card" data-stock="<?= $row['c_number']; ?>" data-id="<?= $row['st_id']; ?>">
+    <div class="shoe-card"  data-id="<?= $row['st_id']; ?>">
       <img src="<?= $row['st_image_link']; ?>" alt="<?= $row['st_name']; ?>">
       <h2><?= $row['st_name']; ?></h2>
       <p>Gender: <?= $row['st_gen']; ?></p>
       <p class="price"><?= number_format($row['st_price']); ?>₫</p>
-      <button class="cart-btn">Change Product Information</button>
-      <button class="buy-btn">Delete</button>
+      <button class="change_shoe_btn">Change Product Information</button>
+      <button class="delete_shoe_btn" >Delete</button>
     </div>
   <?php endwhile; ?>
 </div>

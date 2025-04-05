@@ -1,6 +1,6 @@
 <?php
 
-$isAdmin = isset($_SESSION["user_is_admin"]) ? $_SESSION["user_is_admin"] : 0; // Default to 0 if not set
+$isAdmin = isset($_SESSION["user_is_admin"]) ? $_SESSION["user_is_admin"] : 0; 
 ?>
 <!DOCTYPE html>
 <html lang="en">

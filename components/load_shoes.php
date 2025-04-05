@@ -61,8 +61,7 @@ $total_stmt->close();
 $p_total = ceil($total_records / $record_ppage);
 
 
-$query = "SELECT st.*, c.c_number FROM shoe_type st
-          LEFT JOIN capacity c ON st.st_id = c.st_id
+$query = "SELECT * FROM shoe_type st
           $where_clause $orderBy LIMIT ?, ?";
 $stmt = $db_server->prepare($query);
 
@@ -78,7 +77,7 @@ $result = $stmt->get_result();
 <!-- Shoe List -->
 <div id="shoes-container">
   <?php while ($row = $result->fetch_assoc()): ?>
-    <div class="shoe-card" data-stock="<?= $row['c_number']; ?>" data-id="<?= $row['st_id']; ?>">
+    <div class="shoe-card" data-id="<?= $row['st_id']; ?>">
       <img src="<?= $row['st_image_link']; ?>" alt="<?= $row['st_name']; ?>">
       <h2><?= $row['st_name']; ?></h2>
       <p>Gender: <?= $row['st_gen']; ?></p>

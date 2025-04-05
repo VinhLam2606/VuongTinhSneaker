@@ -84,7 +84,32 @@ body {
 .buy-btn:hover {
     background-color: #333;
 }
+.change_shoe_btn,
+.delete_shoe_btn {
+    margin: 10px 5px 0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.delete_shoe_btn {
+    background-color: #f01414;
+    color: #fff;
+}
 
+.delete_shoe_btn:hover {
+    background-color: #333;
+}
+.change_shoe_btn {
+    background-color: #f3f3f3;
+    color: #333;
+}
+
+.chaneg_shoe_btn:hover {
+    background-color: #ddd;
+}
 .sort-container {
     display: flex;
     justify-content: flex-end;

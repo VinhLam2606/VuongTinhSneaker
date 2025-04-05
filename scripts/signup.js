@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const genderInputs = document.querySelectorAll('input[name="gender"]');
     const signupForm = document.querySelector('form');
     const signUpButton = document.querySelector("#sign_up");
-    const tickbox = document.querySelector('input[name="confirm"]'); // Lấy checkbox
+    const tickbox = document.querySelector('input[name="confirm"]'); 
 
     if (!emailInput || !phoneInput || !passwordInput || !firstnameInput || !lastnameInput || !birthInput || !signupForm || !signUpButton || !tickbox) {
         console.error("Không tìm thấy các phần tử cần thiết trong DOM!");

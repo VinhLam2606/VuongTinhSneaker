@@ -2,11 +2,6 @@
 session_start();
 include "connect-db.php";
 
-if (!isset($_SESSION['user_email'])) {
-    echo "<script>alert('Bạn chưa đăng nhập!'); window.location.href='login.php';</script>";
-    exit();
-}
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $phonenumber = $_POST['phonenumber'] ?? '';
     $firstname = $_POST['firstname'] ?? '';

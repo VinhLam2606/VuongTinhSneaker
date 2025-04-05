@@ -52,7 +52,7 @@
         data-admin="<?php echo isset($_SESSION["user_is_admin"]) ? $_SESSION["user_is_admin"] : 0; ?>">
     </div>
     <script src="/VUONGTINHSNEAKER/scripts/pagination.js"> </script>
-
+    <script src="/VUONGTINHSNEAKER/scripts/change_delete_shoe.js"></script>
 </body>
 
 </html>
