@@ -1,52 +1,88 @@
 <?php
-include 'connect-db.php';
+session_start();
+include "connect-db.php";
 
-header('Content-Type: application/json');
+// Check if the shoe id is provided
+if (isset($_GET['st_id'])) {
+    $st_id = $_GET['st_id'];
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $st_id = isset($_POST['st_id']) ? intval($_POST['st_id']) : 0;
-    $st_name = isset($_POST['st_name']) ? trim($_POST['st_name']) : '';
-    $st_price = isset($_POST['st_price']) ? floatval($_POST['st_price']) : 0;
-    $st_gen = isset($_POST['st_gen']) ? trim($_POST['st_gen']) : '';
-    $st_image_link = isset($_POST['st_image_link']) ? trim($_POST['st_image_link']) : '';
+    // Fetch current shoe information
+    $stmt = $db_server->prepare("SELECT * FROM shoe_type WHERE st_id = ?");
+    $stmt->bind_param("i", $st_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    if ($st_id <= 0 || empty($st_name) || $st_price <= 0 || empty($st_gen)) {
-        echo json_encode([
-            'success' => false,
-            'message' => 'Dữ liệu không hợp lệ. Vui lòng kiểm tra lại.'
-        ]);
+    if ($result->num_rows === 0) {
+        echo "Product not found.";
         exit;
     }
 
-    $query = "UPDATE shoe_type 
-              SET st_name = ?, st_price = ?, st_gen = ?, st_image_link = ? 
-              WHERE st_id = ?";
-    $stmt = $conn->prepare($query);
-    if (!$stmt) {
-        echo json_encode([
-            'success' => false,
-            'message' => 'Lỗi kết nối cơ sở dữ liệu: ' . $conn->error
-        ]);
-        exit;
-    }
-
-    $stmt->bind_param("sdssi", $st_name, $st_price, $st_gen, $st_image_link, $st_id);
-    if ($stmt->execute()) {
-        echo json_encode([
-            'success' => true,
-            'message' => 'Cập nhật thông tin sản phẩm thành công.'
-        ]);
-    } else {
-        echo json_encode([
-            'success' => false,
-            'message' => 'Cập nhật thông tin sản phẩm thất bại.'
-        ]);
-    }
+    $shoe = $result->fetch_assoc();
     $stmt->close();
 } else {
-    echo json_encode([
-        'success' => false,
-        'message' => 'Yêu cầu không hợp lệ.'
-    ]);
+    echo "No product ID provided.";
+    exit;
+}
+
+// Update product information
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $st_name = $_POST['st_name'] ?? '';
+    $st_gen = $_POST['st_gen'] ?? '';
+    $st_price = $_POST['st_price'] ?? '';
+    
+    $st_image_link = $shoe['st_image_link']; 
+
+    if (isset($_FILES['st_image_link']) && $_FILES['st_image_link']['error'] == 0) {
+        // Handle image upload
+        $upload_dir = '/VUONGTINHSNEAKER/IMAGES/';
+        $tmp_name = $_FILES['st_image_link']['tmp_name'];
+        $image_name = basename($_FILES['st_image_link']['name']);
+        $image_path = $upload_dir . $image_name;
+
+        // Move uploaded file to target directory
+        if (move_uploaded_file($tmp_name, $_SERVER['DOCUMENT_ROOT'] . $image_path)) {
+            $st_image_link = $image_path; // Update the image link to the new uploaded file
+        } else {
+            echo "<script>alert('Failed to upload image.');</script>";
+        }
+    }
+
+    // Prepare and execute update query
+    $stmt = $db_server->prepare("UPDATE shoe_type SET st_name=?, st_image_link=?, st_gen=?, st_price=? WHERE st_id=?");
+    $stmt->bind_param("sssii", $st_name, $st_image_link, $st_gen, $st_price, $st_id);
+    
+    if ($stmt->execute()) {
+        echo "<script>alert('Product updated successfully!'); window.location.href='admin_page.php';</script>";
+    } else {
+        echo "<script>alert('Failed to update product, please try again.');</script>";
+    }
+    $stmt->close();
 }
 ?>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Change Product Information</title>
+    <link rel="stylesheet" href="/VUONGTINHSNEAKER/style/change_inf.css">
+</head>
+<body>
+    <div id="change_inf_box">
+        <img src="/VUONGTINHSNEAKER/IMAGES/logo.png" alt="logo" class="logo" width="125">
+        <h3>Change Product Information</h3>
+        <form method="POST" enctype="multipart/form-data">
+            <img src="<?php echo htmlspecialchars($shoe['st_image_link']); ?>" alt="shoe"  width="200">
+            <input type="text" name="st_name" placeholder="Product Name" value="<?php echo htmlspecialchars($shoe['st_name']); ?>" required>
+
+
+            <input type="file" name="st_image_link" accept="image/*">
+            
+            <input type="text" name="st_gen" placeholder="Gender" value="<?php echo htmlspecialchars($shoe['st_gen']); ?>" required>
+            <input type="number" name="st_price" placeholder="Price" value="<?php echo htmlspecialchars($shoe['st_price']); ?>" required>
+            <button id="change_inf" type="submit">Save Changes</button>
+        </form>
+        <br>
+        <a href="admin_page.php">Back to Product List</a>
+    </div>
+</body>
+</html>

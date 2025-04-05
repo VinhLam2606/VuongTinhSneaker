@@ -1,0 +1,89 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#add_product_box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+#add_product_box img {
+    margin-bottom: 20px;
+}
+
+#add_product_box h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#add_product_box p {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form input, .form button {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.form input:focus, .form button:focus {
+    border-color: black;
+    outline: none;
+}
+
+.form button {
+    background-color:black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+    background-color: black;
+}
+
+.gender {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.gender label {
+    font-size: 16px;
+    color: #555;
+}
+
+@media (max-width: 480px) {
+    #add_product_box {
+        width: 90%;
+        padding: 20px;
+    }
+}

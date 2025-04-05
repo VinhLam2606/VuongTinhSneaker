@@ -39,7 +39,6 @@ session_start();
             <a href="change_pass.php">
                 <button id="change_inf" type="button">Change password</button>
             </a>
-            <a href="../main.php">Back to Main Page</a>
         </div>
     </body>
 </html>

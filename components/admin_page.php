@@ -43,6 +43,7 @@
             <option value="name_asc">Name: A to Z</option>
             <option value="name_desc">Name: Z to A</option>
         </select>
+        <button class="add-product">Add Product </button>
     </div>
 
     <div id="shoes-container"></div>
@@ -52,6 +53,7 @@
         data-admin="<?php echo isset($_SESSION["user_is_admin"]) ? $_SESSION["user_is_admin"] : 0; ?>">
     </div>
     <script src="/VUONGTINHSNEAKER/scripts/pagination.js"> </script>
+    <script src="/VUONGTINHSNEAKER/scripts/add_product.js"> </script>
     <script src="/VUONGTINHSNEAKER/scripts/change_delete_shoe.js"></script>
 </body>
 
