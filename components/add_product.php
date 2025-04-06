@@ -65,13 +65,11 @@
                             $stmt_check->close();
                         } else {
                             $stmt_check->close();
-
-                            // Insert data into the shoe_type table
                             $stmt = $db_server->prepare("INSERT INTO shoe_type (st_name, st_image_link, st_gen, st_price) VALUES (?, ?, ?, ?)");
                             $stmt->bind_param("sssi", $st_name, $image_path, $st_gen, $st_price);
 
                             if ($stmt->execute()) {
-                                echo "<script>alert('Product added successfully!'); window.location.href='admin_page.php';</script>";
+                                echo "<script>alert('Product added successfully!'); window.location.href='add_shoe.php';</script>";
                             } else {
                                 echo "<script>alert('Failed to add product. Please try again.');</script>";
                             }
