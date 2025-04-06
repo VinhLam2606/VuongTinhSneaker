@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    padding: 20px;
+}
+.product-info {
+    background: white;
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.product-info img {
+    width: 150px;
+    display: block;
+    margin: auto;
+}
+.size-table td img {
+    width: 20px;         /* hoặc bất kỳ kích thước bạn muốn */
+    height: auto;        /* giữ tỷ lệ khung hình gốc */
+    display: block;
+    margin: auto;
+}
+
+.product-info h2 {
+    text-align: center;
+    margin-bottom: 5px;
+}
+.product-info p {
+    text-align: left;
+    margin: 5px 0;
+}
+.size-table {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+.size-table th, .size-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+.back-btn {
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+}
+
+.back-btn a {
+    text-decoration: none;
+    color: #888;        /* màu xám */
+    font-size: 20px;    /* kích thước mũi tên */
+    transition: color 0.3s;
+}
+
+.back-btn a:hover {
+    color: #555;        /* đậm hơn khi hover */
+}
+.change_shoe_btn {
+    margin: 10px auto; /* Canh giữa */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: block; /* Làm nút thành block để có thể canh giữa */
+    background-color: #333df1;
+    color: #f0ecec;
+}
+
+.change_shoe_btn:hover {
+    background-color: #9ba4f5;
+}

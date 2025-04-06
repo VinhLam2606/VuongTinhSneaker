@@ -79,7 +79,8 @@ $result = $stmt->get_result();
       <h2><?= $row['st_name']; ?></h2>
       <p>Gender: <?= $row['st_gen']; ?></p>
       <p class="price"><?= number_format($row['st_price']); ?>₫</p>
-      <button class="change_shoe_btn">Change Product Information</button>
+
+      <button class="show_shoe_inf_btn" >Show Shoe Information</button>
       <button class="delete_shoe_btn" >Delete</button>
     </div>
   <?php endwhile; ?>

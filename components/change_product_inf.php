@@ -68,21 +68,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div id="change_inf_box">
-        <img src="/VUONGTINHSNEAKER/IMAGES/logo.png" alt="logo" class="logo" width="125">
+        <img src="<?php echo htmlspecialchars($shoe['st_image_link']); ?>" alt="shoe"  width="150">
         <h3>Change Product Information</h3>
         <form method="POST" enctype="multipart/form-data">
-            <img src="<?php echo htmlspecialchars($shoe['st_image_link']); ?>" alt="shoe"  width="200">
             <input type="text" name="st_name" placeholder="Product Name" value="<?php echo htmlspecialchars($shoe['st_name']); ?>" required>
-
-
             <input type="file" name="st_image_link" accept="image/*">
-            
             <input type="text" name="st_gen" placeholder="Gender" value="<?php echo htmlspecialchars($shoe['st_gen']); ?>" required>
             <input type="number" name="st_price" placeholder="Price" value="<?php echo htmlspecialchars($shoe['st_price']); ?>" required>
             <button id="change_inf" type="submit">Save Changes</button>
         </form>
-        <br>
-        <a href="admin_page.php">Back to Product List</a>
+        <div class="back-btn">
+            <a href="show_shoe_inf.php?st_id=<?php echo urlencode($st_id); ?>">←</a>
+        </div>
     </div>
 </body>
 </html>
