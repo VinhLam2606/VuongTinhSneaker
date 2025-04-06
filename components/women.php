@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@900&family=Oswald:wght@700&display=swap"
         rel="stylesheet" />
-    <title>Nike, Just Do It. Nike.com</title>
+    <title>Vương Tình Sneaker</title>
 </head>
 
 <body>

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/683b4b40e3.js" crossorigin="anonymous"></script>
-    <link nes="" rel="icon" sizes="128x128" href="images/logo.png">
+    <link nes="" rel="icon" sizes="120x128" href="images/logo.png">
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@900&family=Oswald:wght@700&display=swap"
         rel="stylesheet">
@@ -20,7 +20,7 @@
     <div id="bottom">
         <div class="left">
             <a href="/VuongTinhSneaker/main.php">
-                <img src="/VUONGTINHSNEAKER/images/logo.png" alt="Vuong Tinh Logo" height="60px" width="120px">
+                <img src="/VUONGTINHSNEAKER/images/logo.png" alt="Vuong Tinh Logo" height="60px" width="90px">
             </a>
 
         </div>
