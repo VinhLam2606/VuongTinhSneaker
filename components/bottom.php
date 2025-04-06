@@ -20,7 +20,7 @@
     <div id="bottom">
         <div class="left">
             <a href="/VuongTinhSneaker/main.php">
-                <img src="/VUONGTINHSNEAKER/images/logo.png" alt="Vuong Tinh Logo" height="60px" width="90px">
+                <img src="/VUONGTINHSNEAKER/images/logo.png" alt="Vuong Tinh Logo" height="60px" width="80px">
             </a>
 
         </div>
