@@ -44,7 +44,7 @@ $isAdmin = isset($_SESSION["user_is_admin"]) ? $_SESSION["user_is_admin"] : 0;
 
     <div id="shoes-container"></div>
     <div id="pagination"></div>
-    <div id="gender-container" data-gender="Men" ></div>
+    <div id="gender-container" data-gender="male" ></div>
     <script src="../scripts/pagination.js"> </script>
     <script src="../scripts/add_to_cart.js"></script>
 

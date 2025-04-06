@@ -40,7 +40,7 @@
     <div id="shoes-container"></div>
     <div id="pagination"></div>
 
-    <div id="gender-container" data-gender="Women"></div>
+    <div id="gender-container" data-gender="female"></div>
     <script src="../scripts/pagination.js"></script>
     <script src="../scripts/add_to_cart.js"></script>
 
