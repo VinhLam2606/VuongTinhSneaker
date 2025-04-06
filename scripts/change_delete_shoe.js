@@ -39,5 +39,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert("Không tìm thấy ID sản phẩm.");
             }
         }
+        else if (e.target.matches(".show_shoe_inf_btn")) {
+            const shoeCard = e.target.closest(".shoe-card");
+            const stId = shoeCard?.dataset.id;
+
+            if (stId) {
+                window.location.href = "show_shoe_inf.php?st_id=" + encodeURIComponent(stId);
+            } else {
+                alert("Không tìm thấy ID sản phẩm.");
+            }
+        }
     });
 });

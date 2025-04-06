@@ -1,0 +1,72 @@
+/* Căn giữa body */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+}
+
+/* Khung vuông chứa form */
+#add_shoe_box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+/* Căn giữa tiêu đề và nội dung bên trong */
+#add_shoe_box h3,
+#add_shoe_box p {
+    text-align: center;
+}
+
+/* Table style */
+table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+
+}
+td > input {
+        border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+#another_size {
+    width: 110px;     
+    height: 35px;       /* Chiều cao mong muốn */
+    padding: 5px 10px;  /* Padding bên trong */
+    font-size: 12px;    /* Cỡ chữ */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}

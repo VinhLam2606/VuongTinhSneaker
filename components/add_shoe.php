@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ?>
                 <tr>
                     <td>
-                        Kích cỡ khác: <input type="number" name="other_size" placeholder="Nhập kích cỡ" min="0">
+                        Khác: <input id="another_size" type="number" name="other_size" placeholder="Nhập kích cỡ" min="0">
                     </td>
                     <td>
                         <input type="number" name="quantity_other" placeholder="Số lượng" min="0" value="0">

@@ -28,33 +28,27 @@
     </div>
 
     <?php
-    // Include the database connection
+    session_start(); // ⚠️ Bắt buộc thêm dòng này để sử dụng $_SESSION
+
     include "connect-db.php";
 
-    // Check if form is submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Get data from the form
         $st_name = $_POST['st_name'] ?? '';
         $st_gen = $_POST['st_gen'] ?? '';
         $st_price = $_POST['st_price'] ?? '';
 
-        // Handle the image upload
         if (isset($_FILES['st_image']) && $_FILES['st_image']['error'] == 0) {
             $image_tmp = $_FILES['st_image']['tmp_name'];
             $image_name = $_FILES['st_image']['name'];
             $image_size = $_FILES['st_image']['size'];
             $image_ext = pathinfo($image_name, PATHINFO_EXTENSION);
 
-            // Define allowed image extensions
             $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
             if (in_array(strtolower($image_ext), $allowed_extensions)) {
-                // Check if the image size is not too large (e.g., 5MB max)
                 if ($image_size <= 5 * 1024 * 1024) {
                     $image_path = "/VUONGTINHSNEAKER/IMAGES/" . uniqid() . "." . $image_ext;
                     
-                    // Move the uploaded image to the images folder
                     if (move_uploaded_file($image_tmp, $_SERVER['DOCUMENT_ROOT'] . $image_path)) {
-                        // Check if the product already exists in the database
                         $stmt_check = $db_server->prepare("SELECT * FROM shoe_type WHERE st_name = ?");
                         $stmt_check->bind_param("s", $st_name);
                         $stmt_check->execute();
@@ -69,11 +63,13 @@
                             $stmt->bind_param("sssi", $st_name, $image_path, $st_gen, $st_price);
 
                             if ($stmt->execute()) {
+                                $_SESSION['st_id'] = $stmt->insert_id; // 
+                                $stmt->close();
                                 echo "<script>alert('Product added successfully!'); window.location.href='add_shoe.php';</script>";
                             } else {
                                 echo "<script>alert('Failed to add product. Please try again.');</script>";
+                                $stmt->close();
                             }
-                            $stmt->close();
                         }
                     } else {
                         echo "<script>alert('Failed to upload image. Please try again.');</script>";

@@ -154,3 +154,39 @@ hr {
   border-bottom: 2px solid black;
   padding-bottom: 15%;
 }
+#sort {
+  width: 200px;               /* Chiều rộng */
+  height: 35px;               /* Chiều cao */
+  padding: 8px 12px;          /* Khoảng cách bên trong */
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 14px;            /* Cỡ chữ */
+  color: #676767;                /* Màu chữ */
+  background-color: #fff;     /* Màu nền */
+  border: 1px solid #ccc;     /* Viền */
+  border-radius: 6px;         /* Bo tròn góc */
+  background-size: 16px 16px;
+}
+.add-product {
+  background-color: #4CAF50;      /* Màu nền: xanh lá */
+  color: white;                   /* Màu chữ */
+  padding: 10px 12px;  
+  margin-top: 5px;
+  margin-bottom: 5px;           /* Kích thước nút */
+  font-size: 14px;                /* Cỡ chữ */
+  border: none;                   /* Xoá viền mặc định */
+  border-radius: 8px;             /* Bo tròn góc */
+  cursor: pointer;                /* Con trỏ dạng tay */
+  transition: background-color 0.3s, transform 0.2s; /* Hiệu ứng mượt */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bóng nhẹ */
+}
+
+.add-product:hover {
+  background-color: #45a049;      /* Màu khi hover */
+  transform: translateY(-2px);    /* Nhẹ lên trên khi hover */
+}
+
+.add-product:active {
+  transform: translateY(0);       /* Trở lại vị trí khi nhấn giữ */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Bóng khi nhấn */
+}
