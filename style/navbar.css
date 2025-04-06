@@ -90,6 +90,7 @@ hr {
   display: flex;
 }
 .search {
+  margin-top: 4%;
   width: 13%;
   margin-left: 13%;
   display: flex;
@@ -111,6 +112,7 @@ hr {
 #icon {
   font-size: 25px;
   margin-top: 7%;
+  margin-right: 15%;
 }
 
 .right {

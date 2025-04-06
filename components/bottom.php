@@ -34,7 +34,7 @@
 
         <form method="GET" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
             <div class="search">
-                <i id="icon" class="fas fa-search" style="color: rgb(237, 115, 204);"></i>
+                <i id="icon" class="fas fa-search"></i>
                 <input id="search_input" type="text" name="query" placeholder="Search" 
                     value="<?php echo htmlspecialchars($search_query); ?>">
                 <button type="submit" style="display: none;">Search</button>

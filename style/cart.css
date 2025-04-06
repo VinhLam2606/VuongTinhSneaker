@@ -194,3 +194,35 @@
     transition: 0.3s;
 }
 
+#checkoutbut:hover {
+    background-color: #333;
+}
+
+/* Custom checkbox styling */
+.checkout-checkbox {
+    display: none;
+}
+
+.checkout-checkbox + label {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #000;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.checkout-checkbox:checked + label {
+    background-color: black;
+    border-color: black;
+}
+
+.checkout-checkbox:checked + label::after {
+    content: '\2714'; /* Unicode check mark */
+    display: block;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    line-height: 20px;
+}
