@@ -4,6 +4,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/VUONGTINHSNEAKER/style/signup.css">
+        <title>Vuong Tinh Sneaker</title>
     </head>
     <script src="../scripts/signup.js"></script>
     <body>
@@ -28,7 +29,7 @@
                         <label><input type="radio" name="gender" value="female"> Female</label>
                     </div>
                     <div id = "tick_box">
-                        <div>
+                        <div class="confirm_signup">
                             <input type="checkbox" name="confirm">
                             <p>Sign up fo emails to get updates from Vuong Tinh on
                                 products,offer and your Member benefits

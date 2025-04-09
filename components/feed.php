@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nike SNKRS, Release Dates and Launch Calender IN</title>
+    <title>Vuong Tinh Sneaker</title>
     <link nes="" rel="icon" sizes="128x128" href="https://www.nike.com/android-icon-128x128.png">
     <link rel="stylesheet" href="../style/navbar.css">
     <script src="https://kit.fontawesome.com/683b4b40e3.js" crossorigin="anonymous"></script>
@@ -101,9 +101,9 @@
               <div>
                   <div>
                       <h3 class="find_a_store_footer">FIND A STORE</h3>
-                      <h3 class="find_a_store_footer"">BECOME A MEMBER</h3>
-                      <h3 class="find_a_store_footer"">SIGN UP FOR EMAIL</h3>
-                      <h3 class="find_a_store_footer""> STUDENT DISCOUNTS</strong>
+                      <h3 class="find_a_store_footer">BECOME A MEMBER</h3>
+                      <h3 class="find_a_store_footer">SIGN UP FOR EMAIL</h3>
+                      <h3 class="find_a_store_footer"> STUDENT DISCOUNTS</strong>
                       <h3 class="find_a_store_footer">SEND US FEEDBACK</h3>
                   </div>
                   <div>

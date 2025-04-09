@@ -1,9 +1,11 @@
 #information_box {
-    box-shadow: 0 1.6px 3.6px 0 rgb(0 0 0 / 13%), 0 0.3px 0.9px 0 rgb(0 0 0 / 11%);
-    font-family: Arial, Helvetica, sans-serif;
-    width: 25%;
-    margin: 8% auto 5%;
-    text-align: center;
+  background: white;
+  max-width: 400px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;  
   }
 
   #information_box > div:first-child {

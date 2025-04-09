@@ -39,7 +39,7 @@ $stmt->close();
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Thông Tin Sản Phẩm</title>
+    <title>Vuong Tinh Sneaker</title>
     <link rel="stylesheet" href="/VUONGTINHSNEAKER/style/show_shoe_inf.css">
 
 </head>

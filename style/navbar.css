@@ -101,7 +101,7 @@ hr {
   padding: 0px 15px;
   border-radius: 20px;
   border: none;
-  color: rgb(240, 240, 240);
+  color: black;
 }
 
 #search_input:hover {

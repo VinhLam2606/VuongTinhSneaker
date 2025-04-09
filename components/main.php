@@ -1,4 +1,3 @@
-
 <html lang="en">
 
 <head>
@@ -8,44 +7,44 @@
     <link rel="stylesheet" href="/VUONGTINHSNEAKER/style/footer.css">
     <link rel="stylesheet" href="/VUONGTINHSNEAKER/style/navbar.css">
     <link rel="stylesheet" href="/VUONGTINHSNEAKER/style/index.css">
+    <link rel="stylesheet" href="/VUONGTINHSNEAKER/style/men.css">
     <script src="https://kit.fontawesome.com/683b4b40e3.js" crossorigin="anonymous"></script>
-    <link nes="" rel="icon" sizes="128x128" href="images/logo.png">
+    <link rel="icon" sizes="128x128" href="images/logo.png">
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@900&family=Oswald:wght@700&display=swap"
         rel="stylesheet">
-    <title>Nike, Just Do It. Nike.com</title>
+    <title>Vuong Tinh Sneaker</title>
 </head>
 
 <body>
     <div id="top_bar">
         <div class="top">
-            <?php include 'components/top.php'; ?>
+            <?php include 'top.php'; ?>
         </div>
 
         <div class="bottom">
-            <?php include 'components/bottom.php'; ?>
+            <?php include 'bottom.php'; ?>
         </div>
     </div>
 
     <?php 
-    if (isset($_GET['search']) && !empty($_GET['search'])) { 
-    ?>
-            <div id="search-results">
-                <?php include 'components/search-results.php'; ?>
-            </div>
-            <script src="scripts/pagination.js"></script>
-    <?php
-        } else {
+    if (isset($_GET['query']) && !empty($_GET['query'])) { 
+        include 'load_shoes.php';
+    }  else {
     ?>
         <div class="content">
-            <?php include 'components/content.php'; ?>
+            <?php include 'content.php'; ?>
         </div>
 
         <div class="footer">
-            <?php include 'components/footer.php'; ?>
+            <?php include 'footer.php'; ?>
         </div>
     <?php } ?>
 
-    <script> src="scripts/navbar.js" </script>
-</html>
+    <div id="gender-container" data-gender=""></div>
+    <script src="../scripts/pagination.js"></script>
+    <script src="../scripts/add_to_cart.js"></script>
+    <script src="./scripts/navbar.js"></script>
 
+</body>
+</html>

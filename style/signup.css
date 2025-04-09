@@ -18,11 +18,11 @@
 
   #signup_box > h3 {
     font-size: 20px;
-    color: rgb(238, 85, 197);
+    color: black;
   }
   #signup_box > p {
     font-size: 14px;
-    color: rgb(238, 85, 197);
+    color: black;
   }
   .form {
     margin-top: 8%;
@@ -38,7 +38,7 @@
 
   input:focus {
     outline: none;
-    border: 2px solid rgb(252, 176, 188);;
+    border: 2px solid black;
   }
 
   .gender {
@@ -75,7 +75,7 @@ div.gender {
     width: 30px;
     margin-right: 4%;
     margin-left: 1%;
-    accent-color: pink;
+    accent-color: black;
   }
 
   #tick_box > div > p,
@@ -92,7 +92,7 @@ div.gender {
     #sign_up {
         width: 98%;
         height: 40px;
-        background: rgb(231, 37, 179);
+        background: black;
         color: white;
         margin-bottom: 2%;
         font-family: sans;
@@ -104,7 +104,12 @@ div.gender {
         cursor: pointer;
     }
   #sign_up:hover {
-    background: rgb(200, 30, 150);
+    background: #cccccc;
   }
-  
+  #signup_box p {
+      color: #5c5c5c;
+  }
       
+div.confirm_signup {
+  margin-left: 30px;
+}
