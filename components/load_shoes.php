@@ -9,11 +9,20 @@ $record_ppage = 9;
 $start = ($page - 1) * $record_ppage;
 
 switch ($sort) {
-    case 'price_asc': $orderBy = "ORDER BY st_price ASC"; break;
-    case 'price_desc': $orderBy = "ORDER BY st_price DESC"; break;
-    case 'name_asc': $orderBy = "ORDER BY st_name ASC"; break;
-    case 'name_desc': $orderBy = "ORDER BY st_name DESC"; break;
-    default: $orderBy = "";
+  case 'price_asc':
+    $orderBy = "ORDER BY st_price ASC";
+    break;
+  case 'price_desc':
+    $orderBy = "ORDER BY st_price DESC";
+    break;
+  case 'name_asc':
+    $orderBy = "ORDER BY st_name ASC";
+    break;
+  case 'name_desc':
+    $orderBy = "ORDER BY st_name DESC";
+    break;
+  default:
+    $orderBy = "";
 }
 
 $filters = [];
@@ -21,28 +30,28 @@ $params = [];
 $param_types = "";
 
 if (!empty($search_query)) {
-    $keywords = explode(" ", $search_query);
-    $name_conditions = [];
+  $keywords = explode(" ", $search_query);
+  $name_conditions = [];
 
-    foreach ($keywords as $word) {
-        $name_conditions[] = "st_name LIKE ?";
-        $params[] = "%$word%";
-        $param_types .= "s";
-    }
+  foreach ($keywords as $word) {
+    $name_conditions[] = "st_name LIKE ?";
+    $params[] = "%$word%";
+    $param_types .= "s";
+  }
 
-    if (is_numeric($search_query)) {
-        $name_conditions[] = "st_price = ?";
-        $params[] = (float)$search_query;
-        $param_types .= "d";
-    }
+  if (is_numeric($search_query)) {
+    $name_conditions[] = "st_price = ?";
+    $params[] = (float)$search_query;
+    $param_types .= "d";
+  }
 
-    $filters[] = "(" . implode(" OR ", $name_conditions) . ")";
+  $filters[] = "(" . implode(" OR ", $name_conditions) . ")";
 }
 
 if (!empty($gender)) {
-    $filters[] = "st_gen = ?";
-    $params[] = $gender;
-    $param_types .= "s";
+  $filters[] = "st_gen = ?";
+  $params[] = $gender;
+  $param_types .= "s";
 }
 
 $where_clause = !empty($filters) ? "WHERE " . implode(" AND ", $filters) : "";
@@ -50,7 +59,7 @@ $where_clause = !empty($filters) ? "WHERE " . implode(" AND ", $filters) : "";
 $total_query = "SELECT COUNT(*) FROM shoe_type $where_clause";
 $total_stmt = $db_server->prepare($total_query);
 if (!empty($params)) {
-    $total_stmt->bind_param($param_types, ...$params);
+  $total_stmt->bind_param($param_types, ...$params);
 }
 $total_stmt->execute();
 $total_stmt->bind_result($total_records);
@@ -59,15 +68,10 @@ $total_stmt->close();
 
 $p_total = ceil($total_records / $record_ppage);
 
-$query = "SELECT st.*,
-                IFNULL(SUM(CASE WHEN s.st_id IS NOT NULL THEN 1 ELSE 0 END), 0) AS stock
-          FROM shoe_type st
-          LEFT JOIN shoe s ON st.st_id = s.st_id
-          $where_clause $orderBy
-          GROUP BY st.st_id
-          LIMIT ?, ?";
-$stmt = $db_server->prepare($query);
+$query = "SELECT * FROM shoe_type st
+          $where_clause $orderBy LIMIT ?, ?";
 
+$stmt = $db_server->prepare($query);
 $param_types .= "ii";
 array_push($params, $start, $record_ppage);
 
@@ -124,4 +128,3 @@ $result = $stmt->get_result();
       class="page-link" data-page="<?= $p_total ?>">Last</a>
   <?php endif; ?>
 </div>
-
