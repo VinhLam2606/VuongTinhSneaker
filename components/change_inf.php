@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input type="radio" name="gender" value="female" <?php echo ($_SESSION['user_gender'] ?? '') === 'female' ? 'checked' : ''; ?>> Female
                     </label>
             </div>
-            <button id="change_inf" type="submit">Save Changes</button>
+            <button id="change_inf" type="submit">Save</button>
         </form>
         <br>
         <a href="information.php">Back to Profile</a>
