@@ -2,10 +2,10 @@
   height: 50px;
   display: flex;
   justify-content: space-between;
-  background-image: url('/VUONGTINHSNEAKER/images/background.jpg'); /* Add the background image */
-  background-position: center; /* Center the background image */
-  background-repeat: no-repeat; /* Ensure the image doesn't repeat */
-  background-size: cover; /* Make sure the image covers the entire section */
+  background-image: url('/VUONGTINHSNEAKER/images/background.jpg');
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
   padding: 0 10px;
 }
 
@@ -26,6 +26,10 @@ body {
   gap: 10px;
   margin-left: auto;
   /* Đẩy hết phần tử sang phải */
+}
+#right > a {
+  color: black;              
+  text-decoration: none;    
 }
 
 .user-info {

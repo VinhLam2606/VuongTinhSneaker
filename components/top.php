@@ -19,7 +19,7 @@
     ?>
     <div id="top">
         <div id="right">
-            <p>Help</p>
+            <a href="https://www.nike.com/vn/help"><p>Help</p></a>
             <?php if (isset($_SESSION["user_id"])): ?>
                 <div class="user-info">
                     <img src="<?php echo $_SESSION['avatar']; ?>" alt="User Avatar" class="avatar">
