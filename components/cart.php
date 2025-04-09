@@ -77,7 +77,7 @@
                 }
 
                 // Store the selected items in localStorage for checkout
-                localStorage.setItem('selectedCheckoutItems', JSON.stringify(selectedItems));
+                localStorage.setItem('checkout-items', JSON.stringify(selectedItems));
 
                 // Redirect the user to the checkout page
                 window.location.href = "checkout.php";

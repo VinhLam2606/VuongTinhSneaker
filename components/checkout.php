@@ -1,3 +1,31 @@
+<?php
+include 'connect-db.php';
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $data = json_decode(file_get_contents("php://input"), true);
+
+    if (!empty($data)) {
+        $deleteQuery = "DELETE FROM shoe WHERE st_id = ? AND shoe_size = ? LIMIT 1";
+        $stmt = $db_server->prepare($deleteQuery);
+
+        foreach ($data as $item) {
+            $st_id = $item['st_id'];
+            $shoe_size = $item['shoe_size'];
+            $quantity = $item['quantity'] ?? 1; // fallback nếu không có quantity
+
+            // Lặp đúng số lượng để xoá từng dòng một
+            for ($i = 0; $i < $quantity; $i++) {
+                $stmt->bind_param("ii", $st_id, $shoe_size);
+                $stmt->execute();
+            }
+            
+        }
+
+        exit; // Dừng tại đây sau khi xử lý POST
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,7 +120,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            let selectedItems = JSON.parse(localStorage.getItem("selectedCheckoutItems")) || [];
+            let selectedItems = JSON.parse(localStorage.getItem("checkout-items")) || [];
             let orderItemsContainer = document.getElementById("order-items");
             let subtotal = 0;
 
@@ -217,27 +245,36 @@
                 }
             }
 
-            // Your payment submission logic
-            alert("Payment submitted!");
+            // Lấy dữ liệu cần gửi
+            const selectedItems = JSON.parse(localStorage.getItem("checkout-items")) || [];
 
-            // Retrieve the cart and selected items from localStorage
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            let selectedItems = JSON.parse(localStorage.getItem("selectedCheckoutItems")) || [];
+            // Gửi dữ liệu về PHP bằng fetch
+            fetch("checkout.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(selectedItems.map(item => ({
+                        st_id: item.id,
+                        shoe_size: item.size,
+                        quantity: item.quantity
+                    })))
 
-            // Loop through each item in selectedItems and remove it from the cart by matching the id
-            selectedItems.forEach(item => {
-                // Filter out the item from the cart based on its id
-                cart = cart.filter(cartItem => cartItem.id !== item.id); // 'item' in selectedItems, 'cartItem' in cart
-            });
+                })
+                .then(response => response.text())
+                .then(result => {
+                    alert("Payment submitted!");
+                    console.log(result); // Xem dữ liệu được server phản hồi
 
-            // Save the updated cart back into localStorage
-            localStorage.setItem("cart", JSON.stringify(cart));
-
-            // Clear the selectedCheckoutItems after successful checkout
-            localStorage.setItem("selectedCheckoutItems", JSON.stringify([]));
-
-            // Redirect to cart page after payment
-            window.location.href = "cart.php";
+                    // Cập nhật lại cart như cũ
+                    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                    selectedItems.forEach(item => {
+                        cart = cart.filter(cartItem => cartItem.id !== item.id);
+                    });
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                    localStorage.setItem("checkout-items", JSON.stringify([]));
+                    window.location.href = "cart.php";
+                });
         }
     </script>
 </body>

@@ -29,7 +29,6 @@
         <div class="center">
             <a href="/VuongTinhSneaker/components/men.php" class="nav-link">Men</a>
             <a href="/VuongTinhSneaker/components/women.php" class="nav-link">Women</a>
-            <a href="/VuongTinhSneaker/components/kid.php" class="nav-link">Kid</a>
         </div>
 
         <form method="GET" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">

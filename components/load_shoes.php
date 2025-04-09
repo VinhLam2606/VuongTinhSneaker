@@ -8,7 +8,6 @@ $page = max(1, intval($_REQUEST["page"] ?? 1));
 $record_ppage = 9;
 $start = ($page - 1) * $record_ppage;
 
-// Apply sorting logic
 switch ($sort) {
     case 'price_asc': $orderBy = "ORDER BY st_price ASC"; break;
     case 'price_desc': $orderBy = "ORDER BY st_price DESC"; break;
@@ -24,7 +23,7 @@ $param_types = "";
 if (!empty($search_query)) {
     $keywords = explode(" ", $search_query);
     $name_conditions = [];
-    
+
     foreach ($keywords as $word) {
         $name_conditions[] = "st_name LIKE ?";
         $params[] = "%$word%";
@@ -60,11 +59,14 @@ $total_stmt->close();
 
 $p_total = ceil($total_records / $record_ppage);
 
-
-$query = "SELECT * FROM shoe_type st
-          $where_clause $orderBy LIMIT ?, ?";
+$query = "SELECT st.*,
+                IFNULL(SUM(CASE WHEN s.st_id IS NOT NULL THEN 1 ELSE 0 END), 0) AS stock
+          FROM shoe_type st
+          LEFT JOIN shoe s ON st.st_id = s.st_id
+          $where_clause $orderBy
+          GROUP BY st.st_id
+          LIMIT ?, ?";
 $stmt = $db_server->prepare($query);
-
 
 $param_types .= "ii";
 array_push($params, $start, $record_ppage);
@@ -77,7 +79,21 @@ $result = $stmt->get_result();
 <!-- Shoe List -->
 <div id="shoes-container">
   <?php while ($row = $result->fetch_assoc()): ?>
-    <div class="shoe-card" data-id="<?= $row['st_id']; ?>">
+    <?php
+    $st_id = $row['st_id'];
+    $size_stmt = $db_server->prepare("SELECT shoe_size, COUNT(*) AS stock FROM shoe WHERE st_id = ? GROUP BY shoe_size ORDER BY shoe_size");
+    $size_stmt->bind_param("i", $st_id);
+    $size_stmt->execute();
+    $size_result = $size_stmt->get_result();
+    $sizes = [];
+    while ($srow = $size_result->fetch_assoc()) {
+      $sizes[] = ['size' => $srow['shoe_size'], 'stock' => $srow['stock']];
+    }
+    $size_stmt->close();
+    ?>
+    <div class="shoe-card"
+      data-id="<?= $row['st_id']; ?>"
+      data-sizes='<?= json_encode($sizes); ?>'>
       <img src="<?= $row['st_image_link']; ?>" alt="<?= $row['st_name']; ?>">
       <h2><?= $row['st_name']; ?></h2>
       <p>Gender: <?= $row['st_gen']; ?></p>
@@ -91,20 +107,21 @@ $result = $stmt->get_result();
 <!-- Pagination -->
 <div id="pagination">
   <?php if ($page > 1): ?>
-    <a href="?query=<?= urlencode($search_query) ?>&gender=<?= $gender ?>&sort=<?= $sort ?>&page=1" 
-       class="page-link" data-page="1">First</a>
+    <a href="?query=<?= urlencode($search_query) ?>&gender=<?= $gender ?>&sort=<?= $sort ?>&page=1"
+      class="page-link" data-page="1">First</a>
 
-    <a href="?query=<?= urlencode($search_query) ?>&gender=<?= $gender ?>&sort=<?= $sort ?>&page=<?= $page - 1 ?>" 
-       class="page-link" data-page="<?= $page - 1 ?>">&laquo; Prev</a>
+    <a href="?query=<?= urlencode($search_query) ?>&gender=<?= $gender ?>&sort=<?= $sort ?>&page=<?= $page - 1 ?>"
+      class="page-link" data-page="<?= $page - 1 ?>">&laquo; Prev</a>
   <?php endif; ?>
 
   <span>Page <?= $page ?> of <?= $p_total ?></span>
 
   <?php if ($page < $p_total): ?>
-    <a href="?query=<?= urlencode($search_query) ?>&gender=<?= $gender ?>&sort=<?= $sort ?>&page=<?= $page + 1 ?>" 
-       class="page-link" data-page="<?= $page + 1 ?>">Next &raquo;</a>
+    <a href="?query=<?= urlencode($search_query) ?>&gender=<?= $gender ?>&sort=<?= $sort ?>&page=<?= $page + 1 ?>"
+      class="page-link" data-page="<?= $page + 1 ?>">Next &raquo;</a>
 
-    <a href="?query=<?= urlencode($search_query) ?>&gender=<?= $gender ?>&sort=<?= $sort ?>&page=<?= $p_total ?>" 
-       class="page-link" data-page="<?= $p_total ?>">Last</a>
+    <a href="?query=<?= urlencode($search_query) ?>&gender=<?= $gender ?>&sort=<?= $sort ?>&page=<?= $p_total ?>"
+      class="page-link" data-page="<?= $p_total ?>">Last</a>
   <?php endif; ?>
 </div>
+
