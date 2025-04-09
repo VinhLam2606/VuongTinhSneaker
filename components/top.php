@@ -19,7 +19,11 @@
     ?>
     <div id="top">
         <div id="right">
+<<<<<<< HEAD
             <p><a href="https://www.nike.com/vn/help" target="_blank">Help</a></p>
+=======
+            <a href="https://www.nike.com/vn/help"><p>Help</p></a>
+>>>>>>> 30f140f3c5268d3ceccb5e961b10d6c5e9296002
             <?php if (isset($_SESSION["user_id"])): ?>
                 <div class="user-info">
                     <img src="<?php echo $_SESSION['avatar']; ?>" alt="User Avatar" class="avatar">
