@@ -76,7 +76,7 @@ if (isset($_GET['st_id']) && isset($_GET['shoe_size'])) {
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Shoe Quantity Details</title>
+    <title>Vuong Tinh Sneaker</title>
     <link rel="stylesheet" href="/VUONGTINHSNEAKER/style/quantity_detail.css">
 </head>
 <body>

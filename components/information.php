@@ -7,6 +7,7 @@ session_start();
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/VUONGTINHSNEAKER/style/information.css">
+        <title>Vuong Tinh Sneaker</title>
     </head>
 
     <body>
@@ -39,6 +40,8 @@ session_start();
             <a href="change_pass.php">
                 <button id="change_inf" type="button">Change password</button>
             </a>
+            <br>
+            <a href="main.php">Back to main page</a>
         </div>
     </body>
 </html>

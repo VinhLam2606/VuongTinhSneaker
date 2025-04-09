@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Change Product Information</title>
+    <title>Vuong Tinh Sneaker</title>
     <link rel="stylesheet" href="/VUONGTINHSNEAKER/style/change_inf.css">
 </head>
 <body>

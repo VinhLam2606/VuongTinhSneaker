@@ -2,9 +2,11 @@
   height: 50px;
   display: flex;
   justify-content: space-between;
-  background-color: #f5f5f5;
+  background-image: url('/VUONGTINHSNEAKER/images/background.jpg'); /* Add the background image */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Ensure the image doesn't repeat */
+  background-size: cover; /* Make sure the image covers the entire section */
   padding: 0 10px;
-  /* Thêm padding để tránh sát viền */
 }
 
 body {
@@ -99,7 +101,7 @@ hr {
   padding: 0px 15px;
   border-radius: 20px;
   border: none;
-  color: rgb(240, 240, 240);
+  color: black;
 }
 
 #search_input:hover {

@@ -13,13 +13,12 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@900&family=Oswald:wght@700&display=swap"
         rel="stylesheet">
-    <title>Nike, Just Do It. Nike.com</title>
+    <title>Vuong Tinh Sneaker</title>
 </head>
 <body>
 <div id="anand">
         <div id="alexa">
-            <img src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_1255,c_limit/558286a5-5ad5-4afd-bcac-a696a30bbcad/nike-just-do-it.png"
-                alt="">
+        <img src="../images/hinhnen5.jpg" alt="hinhnen1">
         </div>
         <div id="on_rise">
             <p>ALEX EALA ON THE RISE</p>
@@ -27,7 +26,7 @@
         </div>
         <div id="tara_image">
             <p>Featured</p>
-            <img src="images/thumbnail.avif" alt="">
+            <img src="../images/thumbnail.avif" alt="">
         </div>
         <div id="training_ess">
             <p>Training Essentials</p>

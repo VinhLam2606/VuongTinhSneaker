@@ -16,7 +16,7 @@ $isAdmin = isset($_SESSION["user_is_admin"]) ? $_SESSION["user_is_admin"] : 0;
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@900&family=Oswald:wght@700&display=swap"
         rel="stylesheet" />
-    <title>Vương Tình Sneaker</title>
+    <title>Vuong Tinh Sneaker</title>
 </head>
 
 <body>

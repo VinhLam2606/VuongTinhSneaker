@@ -1,15 +1,14 @@
 #change_inf_box {
   background: white;
-  max-width: 600px;
+  max-width: 400px;
   margin: auto;
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: center;  /* Center all child elements */
+  text-align: center;  
 }
 
 .logo {
-  width: 125px;  
   height: auto;
   display: block;
   margin: 0 auto;

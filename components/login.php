@@ -54,7 +54,7 @@
                         }
                         else {
                            
-                            echo "<script>alert('Đăng nhập thành công!'); window.location.href='/VUONGTINHSNEAKER/main.php';</script>";
+                            echo "<script>alert('Đăng nhập thành công!'); window.location.href='/VUONGTINHSNEAKER/components/main.php';</script>";
                         }
                     } else {
                         echo "<script>alert('Mật khẩu không chính xác!');</script>";    

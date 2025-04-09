@@ -34,13 +34,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Change Password</title>
+    <title>Vuong Tinh Sneaker</title>
     <link rel="stylesheet" href="/VUONGTINHSNEAKER/style/change_inf.css">
 </head>
 <body>
     <div id="change_inf_box">
-        <img src="/VUONGTINHSNEAKER/IMAGES/logo.png" alt="logo" class="logo">
-        <img src="<?php echo $_SESSION['avatar']; ?>" alt="User Avatar" class="avatar">
+        <img src="/VUONGTINHSNEAKER/IMAGES/logo.png" alt="logo" class="logo" width="80">
+        <img src="<?php echo $_SESSION['avatar']; ?>" alt="User Avatar" class="avatar" width="60">
         <h3>Change Your Password</h3>
         <form method="POST">
             <input type="password" name="current_password" placeholder="Current Password" required>

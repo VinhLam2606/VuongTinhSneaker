@@ -3,15 +3,13 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>Vuong Tinh Sneaker</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <link rel="stylesheet" href="./style/footer.css">
     <link rel="stylesheet" href="./style/login.css">
     <link rel="stylesheet" href="./style/signup.css">
     <link rel="stylesheet" href="./style/navbar.css">
     <link rel="stylesheet" href="./style/index.css">
-    <script src='main.js'></script>
 </head>
 <body>
 <div id="futer_footer">

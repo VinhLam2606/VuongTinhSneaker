@@ -33,13 +33,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Change Information</title>
+    <title>Vuong Tinh Sneaker</title>
     <link rel="stylesheet" href="/VUONGTINHSNEAKER/style/change_inf.css">
 </head>
 <body>
     <div id="change_inf_box">
-        <img src="/VUONGTINHSNEAKER/IMAGES/logo.png" alt="logo" class="logo" width="125">
-        <img src="<?php echo $_SESSION['avatar'] ?>" alt="User Avatar" class="avatar">
+        <img src="/VUONGTINHSNEAKER/IMAGES/logo.png" alt="logo" class="logo" width="80">
+        <img src="<?php echo $_SESSION['avatar'] ?>" alt="User Avatar" class="avatar" width="60">
         <h3>Change Your Information</h3>
         <form method="POST">
             <input type="text" name="firstname" placeholder="First Name" value="<?php echo htmlspecialchars($_SESSION['username'] ?? ''); ?>" required>

@@ -10,7 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@900&family=Oswald:wght@700&display=swap"
         rel="stylesheet">
-    <title>Nike, Just Do It. Nike.com</title>
+    <title>Vuong Tinh Sneaker</title>
 </head>
 <?php 
     $search_query = isset($_GET['query']) ? $_GET['query'] : ''; 
@@ -19,16 +19,16 @@
 <body>
     <div id="bottom">
         <div class="left">
-            <a href="/VuongTinhSneaker/main.php">
-                <img src="/VUONGTINHSNEAKER/images/logo.png" alt="Vuong Tinh Logo" height="60px" width="80px">
+            <a href="/VuongTinhSneaker/components/main.php">
+                <img src="/VUONGTINHSNEAKER/images/logo.png" alt="Vuong Tinh Logo" height="60px" width="75px">
             </a>
 
         </div>
         <div id="center_phone">
         </div>
         <div class="center">
-            <a href="/VuongTinhSneaker/components/men.php" class="nav-link">Men</a>
-            <a href="/VuongTinhSneaker/components/women.php" class="nav-link">Women</a>
+            <a href="/VuongTinhSneaker/components/men.php" class="nav-link"><b>Men</b></a>
+            <a href="/VuongTinhSneaker/components/women.php" class="nav-link"><b>Women</b></a>
         </div>
 
         <form method="GET" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
