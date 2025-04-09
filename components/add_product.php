@@ -25,6 +25,7 @@
                 <button type="submit" id="add_product_btn">Add Product</button>
             </form>
         </div>
+        <a href="admin_page.php">Back to main page</a>
     </div>
 
     <?php

@@ -57,3 +57,4 @@
         currentPage = 1;
         loadShoes(currentPage, currentSort, currentSearch);
     });
+
