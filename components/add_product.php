@@ -29,7 +29,7 @@
     </div>
 
     <?php
-    session_start(); // ⚠️ Bắt buộc thêm dòng này để sử dụng $_SESSION
+    session_start(); 
 
     include "connect-db.php";
 
@@ -47,7 +47,7 @@
             $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
             if (in_array(strtolower($image_ext), $allowed_extensions)) {
                 if ($image_size <= 5 * 1024 * 1024) {
-                    $image_path = "/VUONGTINHSNEAKER/IMAGES/" . uniqid() . "." . $image_ext;
+                    $image_path = "/VUONGTINHSNEAKER/IMAGES/" . $image_name. "." . $image_ext;
                     
                     if (move_uploaded_file($image_tmp, $_SERVER['DOCUMENT_ROOT'] . $image_path)) {
                         $stmt_check = $db_server->prepare("SELECT * FROM shoe_type WHERE st_name = ?");
