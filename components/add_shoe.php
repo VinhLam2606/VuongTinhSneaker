@@ -2,22 +2,22 @@
 session_start();
 include "connect-db.php";
 
-// Nếu chưa có st_id trong session, lấy sản phẩm mới nhất từ bảng shoe_type
+// If there's no st_id in the session, get the latest product from the shoe_type table
 if (!isset($_SESSION['st_id'])) {
     $result = $db_server->query("SELECT st_id FROM shoe_type ORDER BY st_id DESC LIMIT 1");
     if ($result && $result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $_SESSION['st_id'] = $row['st_id'];
     } else {
-        die("Không tìm thấy sản phẩm nào. Vui lòng thêm sản phẩm trước.");
+        die("No product found. Please add a product first.");
     }
 }
 
-// Xử lý dữ liệu khi form được submit
+// Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $st_id = $_SESSION['st_id'];
 
-    // Các kích cỡ cố định từ 37 đến 43
+    // Fixed sizes from 37 to 43
     foreach (range(37, 43) as $size) {
         $quantity = isset($_POST['quantity_' . $size]) ? (int)$_POST['quantity_' . $size] : 0;
         for ($i = 0; $i < $quantity; $i++) {
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Xử lý kích cỡ khác (other)
+    // Handle other sizes
     $other_size = isset($_POST['other_size']) ? (int)$_POST['other_size'] : 0;
     $other_quantity = isset($_POST['quantity_other']) ? (int)$_POST['quantity_other'] : 0;
     if ($other_size > 0 && $other_quantity > 0) {
@@ -40,12 +40,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    echo "<script>alert('Thêm giày thành công!'); window.location.href='admin_page.php';</script>";
+    echo "<script>alert('Shoes added successfully!'); window.location.href='admin_page.php';</script>";
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,16 +54,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div id="add_shoe_box">
-        <h3>Thêm Chi Tiết Giày Cho Sản Phẩm Mới</h3>
-        <p>Nhập số lượng giày theo các kích cỡ có sẵn từ 37 đến 43 và kích cỡ khác nếu có.</p>
+        <h3>Add Shoe Details for the New Product</h3>
+        <p>Enter the quantity of shoes for available sizes from 37 to 43 and any other sizes if applicable.</p>
         <form method="POST" action="add_shoe.php">
             <table>
                 <tr>
-                    <th>Kích cỡ</th>
-                    <th>Số lượng</th>
+                    <th>Size</th>
+                    <th>Quantity</th>
                 </tr>
                 <?php
-                // Hiển thị các dòng cho kích cỡ từ 37 đến 43
+                // Display rows for sizes 37 to 43
                 foreach (range(37, 43) as $size) {
                     echo "<tr>
                             <td>$size</td>
@@ -73,14 +73,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ?>
                 <tr>
                     <td>
-                        Khác: <input id="another_size" type="number" name="other_size" placeholder="Nhập kích cỡ" min="0">
+                        Other: <input id="another_size" type="number" name="other_size" placeholder="Enter size" min="0">
                     </td>
                     <td>
-                        <input type="number" name="quantity_other" placeholder="Số lượng" min="0" value="0">
+                        <input type="number" name="quantity_other" placeholder="Quantity" min="0" value="0">
                     </td>
                 </tr>
             </table>
-            <button type="submit">Thêm Chi Tiết Giày</button>
+            <button type="submit">Add Shoe Details</button>
         </form>
     </div>
 </body>
