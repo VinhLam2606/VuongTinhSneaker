@@ -51,7 +51,7 @@ document.getElementById('sort')?.addEventListener('change', function() {
         }
     });
 
-    // 🔥 Auto-load when typing in search input
+
     document.getElementById('search_input')?.addEventListener('input', function () {
         currentSearch = this.value;
         currentPage = 1;
@@ -68,7 +68,7 @@ document.getElementById('sort')?.addEventListener('change', function() {
         }
     });
 
-    // 🔥 Auto-load when typing in search input
+
     document.getElementById('search_input')?.addEventListener('input', function () {
         currentSearch = this.value;
         currentPage = 1;

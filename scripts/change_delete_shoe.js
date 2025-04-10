@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("click", function (e) {
-        // Nút XÓA
         if (e.target.matches(".delete_shoe_btn")) {
             const shoeCard = e.target.closest(".shoe-card");
             const shoeId = shoeCard?.dataset.id;
