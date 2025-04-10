@@ -40,6 +40,9 @@ session_start();
             <a href="change_pass.php">
                 <button id="change_inf" type="button">Change password</button>
             </a>
+            <a href="order_history.php">
+                <button id="change_inf" type="button">Order History</button>
+            </a>
             <br>
             <a href="main.php">Back to main page</a>
         </div>

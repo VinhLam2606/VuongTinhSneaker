@@ -2,11 +2,9 @@
 session_start();
 include "connect-db.php";
 
-// Check if the shoe id is provided
 if (isset($_GET['st_id'])) {
     $st_id = $_GET['st_id'];
 
-    // Fetch current shoe information
     $stmt = $db_server->prepare("SELECT * FROM shoe_type WHERE st_id = ?");
     $stmt->bind_param("i", $st_id);
     $stmt->execute();
@@ -24,33 +22,33 @@ if (isset($_GET['st_id'])) {
     exit;
 }
 
-// Update product information
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $st_name = $_POST['st_name'] ?? '';
     $st_gen = $_POST['st_gen'] ?? '';
     $st_price = $_POST['st_price'] ?? '';
-    
-    $st_image_link = $shoe['st_image_link']; 
+
+    $st_image_link = $shoe['st_image_link'];
 
     if (isset($_FILES['st_image_link']) && $_FILES['st_image_link']['error'] == 0) {
-        // Handle image upload
+
         $upload_dir = '/VUONGTINHSNEAKER/IMAGES/';
         $tmp_name = $_FILES['st_image_link']['tmp_name'];
         $image_name = basename($_FILES['st_image_link']['name']);
         $image_path = $upload_dir . $image_name;
 
-        // Move uploaded file to target directory
+
         if (move_uploaded_file($tmp_name, $_SERVER['DOCUMENT_ROOT'] . $image_path)) {
-            $st_image_link = $image_path; // Update the image link to the new uploaded file
+            $st_image_link = $image_path;
         } else {
             echo "<script>alert('Failed to upload image.');</script>";
         }
     }
 
-    // Prepare and execute update query
+
     $stmt = $db_server->prepare("UPDATE shoe_type SET st_name=?, st_image_link=?, st_gen=?, st_price=? WHERE st_id=?");
     $stmt->bind_param("sssii", $st_name, $st_image_link, $st_gen, $st_price, $st_id);
-    
+
     if ($stmt->execute()) {
         echo "<script>alert('Product updated successfully!'); window.location.href='admin_page.php';</script>";
     } else {
@@ -61,14 +59,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Vuong Tinh Sneaker</title>
     <link rel="stylesheet" href="/VUONGTINHSNEAKER/style/change_inf.css">
 </head>
+
 <body>
     <div id="change_inf_box">
-        <img src="<?php echo htmlspecialchars($shoe['st_image_link']); ?>" alt="shoe"  width="150">
+        <img src="<?php echo htmlspecialchars($shoe['st_image_link']); ?>" alt="shoe" width="150">
         <h3>Change Product Information</h3>
         <form method="POST" enctype="multipart/form-data">
             <input type="text" name="st_name" placeholder="Product Name" value="<?php echo htmlspecialchars($shoe['st_name']); ?>" required>
@@ -82,4 +82,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 </body>
+
 </html>

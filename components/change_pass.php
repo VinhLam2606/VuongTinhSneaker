@@ -32,11 +32,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Vuong Tinh Sneaker</title>
     <link rel="stylesheet" href="/VUONGTINHSNEAKER/style/change_inf.css">
 </head>
+
 <body>
     <div id="change_inf_box">
         <img src="/VUONGTINHSNEAKER/IMAGES/logo.png" alt="logo" class="logo" width="80">
@@ -52,4 +54,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="information.php">Back to Profile</a>
     </div>
 </body>
+
 </html>

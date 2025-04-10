@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     let selectedItems = JSON.parse(localStorage.getItem("checkout-items")) || [];
     let orderItemsContainer = document.getElementById("order-items");
     let subtotal = 0;
@@ -108,11 +108,6 @@ function nextStep(step) {
     }
 }
 
-function prevStep(step) {
-    document.querySelectorAll(".form-step").forEach(el => el.classList.add("hidden"));
-    document.getElementById(`step-${step}`).classList.remove("hidden");
-}
-
 function submitPayment() {
     const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
 
@@ -124,34 +119,41 @@ function submitPayment() {
         }
     }
 
-    // Lấy dữ liệu cần gửi
+    // Lấy dữ liệu từ localStorage
     const selectedItems = JSON.parse(localStorage.getItem("checkout-items")) || [];
+
+    // Lấy tổng tiền từ DOM
+    const total = parseInt(document.getElementById("total").textContent.replace(/\D/g, '')) || 0;
 
     // Gửi dữ liệu về PHP bằng fetch
     fetch("checkout.php", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(selectedItems.map(item => ({
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            items: selectedItems.map(item => ({
                 st_id: item.id,
                 shoe_size: item.size,
-                quantity: item.quantity
-            })))
-
+                quantity: item.quantity,
+                price: item.price
+            })),
+            total: total
         })
-        .then(response => response.text())
-        .then(result => {
-            alert("Payment submitted!");
-            console.log(result); // Xem dữ liệu được server phản hồi
+    })
+    .then(response => response.text())
+    .then(result => {
+        alert("Payment submitted!");
+        console.log(result); // Log the response from the server
 
-            // Cập nhật lại cart như cũ
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            selectedItems.forEach(item => {
-                cart = cart.filter(cartItem => cartItem.id !== item.id);
-            });
-            localStorage.setItem("cart", JSON.stringify(cart));
-            localStorage.setItem("checkout-items", JSON.stringify([]));
-            window.location.href = "cart.php";
+        // Xoá các sản phẩm đã thanh toán khỏi giỏ hàng
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        selectedItems.forEach(item => {
+            cart = cart.filter(cartItem => cartItem.id !== item.id);
         });
+        localStorage.setItem("cart", JSON.stringify(cart));
+        localStorage.setItem("checkout-items", JSON.stringify([])); // Clear checkout items
+        window.location.href = "cart.php";
+    });
 }
+

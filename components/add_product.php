@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,12 +8,13 @@
     <link rel="stylesheet" href="/VUONGTINHSNEAKER/style/add_product.css" />
     <title>Vuong Tinh Sneaker</title>
 </head>
+
 <body>
     <div id="add_product_box">
         <img src="/VUONGTINHSNEAKER/IMAGES/logo.png" alt="logo" width="125">
         <h3>Add a New Product</h3>
         <p>Fill in the details of the new product you want to add to the store.</p>
-        
+
         <div class="form">
             <form method="POST" action="add_product.php" enctype="multipart/form-data">
                 <input type="text" name="st_name" placeholder="Product Name" required>
@@ -29,7 +31,7 @@
     </div>
 
     <?php
-    session_start(); 
+    session_start();
 
     include "connect-db.php";
 
@@ -47,8 +49,8 @@
             $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
             if (in_array(strtolower($image_ext), $allowed_extensions)) {
                 if ($image_size <= 5 * 1024 * 1024) {
-                    $image_path = "/VUONGTINHSNEAKER/IMAGES/" . $image_name. "." . $image_ext;
-                    
+                    $image_path = "/VUONGTINHSNEAKER/IMAGES/" . uniqid() . "." . $image_ext;
+
                     if (move_uploaded_file($image_tmp, $_SERVER['DOCUMENT_ROOT'] . $image_path)) {
                         $stmt_check = $db_server->prepare("SELECT * FROM shoe_type WHERE st_name = ?");
                         $stmt_check->bind_param("s", $st_name);
@@ -64,7 +66,7 @@
                             $stmt->bind_param("sssi", $st_name, $image_path, $st_gen, $st_price);
 
                             if ($stmt->execute()) {
-                                $_SESSION['st_id'] = $stmt->insert_id; // 
+                                $_SESSION['st_id'] = $stmt->insert_id;
                                 $stmt->close();
                                 echo "<script>alert('Product added successfully!'); window.location.href='add_shoe.php';</script>";
                             } else {
@@ -87,4 +89,5 @@
     }
     ?>
 </body>
+
 </html>

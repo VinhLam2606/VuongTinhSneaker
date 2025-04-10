@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const shoeCard = e.target.closest(".shoe-card");
             const shoeId = shoeCard?.dataset.id;
 
-            if (confirm("Bạn có chắc chắn muốn xóa sản phẩm này?")) {
+            if (confirm("Confirm to delete this product?")) {
                 fetch("delete_shoe.php", {
                     method: "POST",
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -14,14 +14,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then(data => {
                     if (data.success) {
                         shoeCard.remove();
-                        alert("Sản phẩm đã được xóa thành công!");
+                        alert("The product is removed successfully!");
                     } else {
-                        alert("Xóa sản phẩm thất bại.");
+                        alert("Failed to delete this product.");
                     }
                 })
                 .catch(error => {
-                    console.error("Lỗi:", error);
-                    alert("Đã xảy ra lỗi khi xóa sản phẩm.");
+                    console.error("Error:", error);
+                    alert("Errors occur when deleting this product.");
                 });
             }
         }
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Chuyển hướng sang trang chỉnh sửa với st_id
                 window.location.href = "change_product_inf.php?st_id=" + encodeURIComponent(stId);
             } else {
-                alert("Không tìm thấy ID sản phẩm.");
+                alert("Couldn't find product's ID.");
             }
         }
         else if (e.target.matches(".show_shoe_inf_btn")) {
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (stId) {
                 window.location.href = "show_shoe_inf.php?st_id=" + encodeURIComponent(stId);
             } else {
-                alert("Không tìm thấy ID sản phẩm.");
+                alert("Couldn't find product's ID.");
             }
         }
     });

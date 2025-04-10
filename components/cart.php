@@ -57,32 +57,26 @@
     <script src="../scripts/cart.js"></script>
     <script>
         document.getElementById("checkoutbut").addEventListener("click", function() {
-            // Check if the user is logged in by using PHP session check.
             <?php if (isset($_SESSION["user_id"])): ?>
-                // User is logged in, proceed to checkout
                 const checkboxes = document.querySelectorAll('.checkout-checkbox:checked');
                 const selectedItems = [];
 
-                // Loop through checked checkboxes and add selected items to the array
                 checkboxes.forEach(checkbox => {
                     const index = parseInt(checkbox.dataset.index);
-                    const item = JSON.parse(localStorage.getItem('cart'))[index]; // Get the item from localStorage by index
+                    const item = JSON.parse(localStorage.getItem('cart'))[index];
                     selectedItems.push(item);
                 });
 
-                // If no items are selected, show an alert
                 if (selectedItems.length === 0) {
                     alert("Please select at least one item to checkout.");
                     return;
                 }
 
-                // Store the selected items in localStorage for checkout
                 localStorage.setItem('checkout-items', JSON.stringify(selectedItems));
 
-                // Redirect the user to the checkout page
                 window.location.href = "checkout.php";
+
             <?php else: ?>
-                // If the user is not logged in, show an alert and redirect to the login page
                 alert("Please login to continue!");
                 window.location.href = "login.php";
             <?php endif; ?>
