@@ -10,10 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit;
     }
 
-    $account_id = $_SESSION['account_id'];
     $data = json_decode(file_get_contents("php://input"), true);
 
-    // Kiểm tra xem dữ liệu yêu cầu có hợp lệ không
     if (!isset($data['items']) || !isset($data['total'])) {
         echo "Invalid request: missing order data.";
         exit;
