@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="password" name="current_password" placeholder="Current Password" required>
             <input type="password" name="new_password" placeholder="New Password" required>
             <input type="password" name="confirm_password" placeholder="Confirm New Password" required>
-            <button id="change_inf" type="submit">Change Password</button>
+            <button id="change_inf" type="submit">Confirm</button>
         </form>
         <br>
         <a href="information.php">Back to Profile</a>
