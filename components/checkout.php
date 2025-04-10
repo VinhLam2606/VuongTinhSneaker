@@ -1,30 +1,80 @@
 <?php
+session_start();
 include 'connect-db.php';
 
+// Kiểm tra xem phương thức HTTP có phải là POST không
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Kiểm tra xem người dùng đã đăng nhập chưa
+    if (!isset($_SESSION['account_id'])) {
+        echo "Unauthorized: Please log in to place an order.";
+        exit;
+    }
+
+    $account_id = $_SESSION['account_id'];
     $data = json_decode(file_get_contents("php://input"), true);
 
-    if (!empty($data)) {
-        $deleteQuery = "DELETE FROM shoe WHERE st_id = ? AND shoe_size = ? LIMIT 1";
-        $stmt = $db_server->prepare($deleteQuery);
+    // Kiểm tra xem dữ liệu yêu cầu có hợp lệ không
+    if (!isset($data['items']) || !isset($data['total'])) {
+        echo "Invalid request: missing order data.";
+        exit;
+    }
 
-        foreach ($data as $item) {
-            $st_id = $item['st_id'];
-            $shoe_size = $item['shoe_size'];
-            $quantity = $item['quantity'] ?? 1; // fallback nếu không có quantity
+    $items = $data['items'];
+    $total = $data['total'];
 
-            // Lặp đúng số lượng để xoá từng dòng một
-            for ($i = 0; $i < $quantity; $i++) {
-                $stmt->bind_param("ii", $st_id, $shoe_size);
-                $stmt->execute();
-            }
+    // Insert vào bảng order_history
+    $insertOrder = $db_server->prepare("INSERT INTO order_history (account_id, oh_total, order_date) VALUES (?, ?, NOW())");
+    if (!$insertOrder) {
+        die("Failed to prepare order insertion: " . $db_server->error);
+    }
+    $insertOrder->bind_param("ii", $account_id, $total);
+    if (!$insertOrder->execute()) {
+        die("Order insertion failed: " . $insertOrder->error);
+    }
 
+    $order_id = $insertOrder->insert_id;
+
+    // Insert mỗi chi tiết vào bảng order_detail và xóa hàng trong bảng shoe
+    $insertDetail = $db_server->prepare("INSERT INTO order_detail (oh_id, st_id, od_quantity, od_size) VALUES (?, ?, ?, ?)");
+    if (!$insertDetail) {
+        die("Failed to prepare order detail insertion: " . $db_server->error);
+    }
+    
+    $deleteShoe = $db_server->prepare("DELETE FROM shoe WHERE st_id = ? AND shoe_size = ? LIMIT 1");
+    if (!$deleteShoe) {
+        die("Failed to prepare shoe deletion: " . $db_server->error);
+    }
+
+    foreach ($items as $item) {
+        $st_id = $item['st_id'];
+        $shoe_size = $item['shoe_size'];
+        $quantity = $item['quantity'] ?? 1;
+
+        // Insert vào bảng order_detail
+        $insertDetail->bind_param("iiii", $order_id, $st_id, $quantity, $shoe_size);
+        if (!$insertDetail->execute()) {
+            die("Insert detail failed: " . $insertDetail->error);
         }
 
-        exit; // Dừng tại đây sau khi xử lý POST
+        // Xóa từng đôi giày theo số lượng
+        for ($i = 0; $i < $quantity; $i++) {
+            $deleteShoe->bind_param("ii", $st_id, $shoe_size);
+            if (!$deleteShoe->execute()) {
+                echo "Failed to delete shoe with st_id $st_id and shoe_size $shoe_size.";
+                exit;
+            }
+            if ($deleteShoe->affected_rows === 0) {
+                echo "Out of stock for st_id $st_id, size $shoe_size.";
+                exit;
+            }
+        }
     }
+
+    echo "success";
+    exit;
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -113,7 +163,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <h3>Order Summary</h3>
             <p id="subtotal"></p>
             <p id="shipping"></p>
-            <p id="tax"></p>
             <p><strong id="total"></strong></p>
         </div>
     </div>

@@ -105,3 +105,4 @@ function formatCurrency(value) {
 document.addEventListener('DOMContentLoaded', function () {
   loadCart();
 });
+

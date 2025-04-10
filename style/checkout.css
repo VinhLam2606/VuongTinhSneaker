@@ -48,9 +48,6 @@ body {
     font-size: 16px;
 }
 
-.step.active {
-    background: black;
-}
 
 .line {
     flex-grow: 1;

@@ -12,8 +12,8 @@
         rel="stylesheet">
     <title>Vuong Tinh Sneaker</title>
 </head>
-<?php 
-    $search_query = isset($_GET['query']) ? $_GET['query'] : ''; 
+<?php
+$search_query = isset($_GET['query']) ? $_GET['query'] : '';
 ?>
 
 <body>
@@ -34,7 +34,7 @@
         <form method="GET" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
             <div class="search">
                 <i id="icon" class="fas fa-search"></i>
-                <input id="search_input" type="text" name="query" placeholder="Search" 
+                <input id="search_input" type="text" name="query" placeholder="Search"
                     value="<?php echo htmlspecialchars($search_query); ?>">
                 <button type="submit" style="display: none;">Search</button>
             </div>

@@ -47,15 +47,15 @@ $stmt->close();
     <div class="product-info">
         <img src="<?php echo htmlspecialchars($product['st_image_link']); ?>" alt="Product Image">
         <h2><?php echo htmlspecialchars($product['st_name']); ?></h2>
-        <p><strong>Giới tính:</strong> <?php echo htmlspecialchars($product['st_gen']); ?></p>
-        <p><strong>Giá:</strong> <?php echo number_format($product['st_price']); ?> VNĐ</p>
+        <p><strong>Gender:</strong> <?php echo htmlspecialchars($product['st_gen']); ?></p>
+        <p><strong>Price:</strong> <?php echo number_format($product['st_price']); ?> VNĐ</p>
 
-        <h3>Số lượng theo từng size</h3>
+        <h3>Quantity for each size</h3>
         <table class="size-table">
             <tr>
                 <th>Size</th>
-                <th>Số lượng</th>
-                <th>Xem chi tiết </th>
+                <th>Quantity</th>
+                <th>Details</th>
             </tr>
             <?php foreach ($sizes as $size): ?>
                 <tr>
