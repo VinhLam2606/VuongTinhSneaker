@@ -26,12 +26,12 @@ session_start();
                     $address = $_SESSION['user_address'] ?? "N/A";
                     $gender = $_SESSION['user_gender'] ?? "N/A";
 
-                    echo "<p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>";
-                    echo "<p><strong>Phone Number:</strong> " . htmlspecialchars($phonenumber) . "</p>";
-                    echo "<p><strong>Full Name:</strong> " . htmlspecialchars($firstname . " " . $lastname) . "</p>";
-                    echo "<p><strong>Birth Date:</strong> " . htmlspecialchars($birth) . "</p>";
-                    echo "<p><strong>Address:</strong> " . htmlspecialchars($address) . "</p>";
-                    echo "<p><strong>Gender:</strong> " . htmlspecialchars($gender) . "</p>";
+                    echo "<p><strong>Email:</strong> " . $email . "</p>";
+                    echo "<p><strong>Phone Number:</strong> " . $phonenumber . "</p>";
+                    echo "<p><strong>Full Name:</strong> " . $firstname . " " . $lastname . "</p>";
+                    echo "<p><strong>Birth Date:</strong> " .$birth . "</p>";
+                    echo "<p><strong>Address:</strong> " . $address . "</p>";
+                    echo "<p><strong>Gender:</strong> " . $gender . "</p>";
                 } 
             ?>
             <a href="change_inf.php">
@@ -39,9 +39,6 @@ session_start();
             </a>
             <a href="change_pass.php">
                 <button id="change_inf" type="button">Change password</button>
-            </a>
-            <a href="order_history.php">
-                <button id="change_inf" type="button">Order History</button>
             </a>
             <br>
             <a href="main.php">Back to main page</a>

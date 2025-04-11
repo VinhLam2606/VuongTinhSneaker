@@ -11,7 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
         exit;
     }
 
-    // Start transaction
     $db_server->begin_transaction();
 
     try {
@@ -26,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
         $deleteShoeType->execute();
         $deleteShoeType->close();
 
-        // Commit transaction
         $db_server->commit();
 
         echo json_encode(["success" => true, "message" => "Product deleted successfully."]);

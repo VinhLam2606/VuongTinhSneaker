@@ -47,8 +47,6 @@
         <?php
             include "connect-db.php";
 
-
-            // Xử lý đăng ký tài khoản
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $phonenumber = $_POST['phonenumber'] ?? "";
                 $email = $_POST['email'] ?? "";

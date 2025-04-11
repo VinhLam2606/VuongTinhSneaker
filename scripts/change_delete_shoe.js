@@ -26,13 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        // Nút CHỈNH SỬA
         else if (e.target.matches(".change_shoe_btn")) {
             const shoeCard = e.target.closest(".shoe-card");
             const stId = shoeCard?.dataset.id;
 
             if (stId) {
-                // Chuyển hướng sang trang chỉnh sửa với st_id
                 window.location.href = "change_product_inf.php?st_id=" + encodeURIComponent(stId);
             } else {
                 alert("Couldn't find product's ID.");

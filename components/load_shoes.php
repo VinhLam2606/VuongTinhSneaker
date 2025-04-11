@@ -80,7 +80,6 @@ $stmt->execute();
 $result = $stmt->get_result();
 ?>
 
-<!-- Shoe List -->
 <div id="shoes-container">
   <?php while ($row = $result->fetch_assoc()): ?>
     <?php
@@ -108,7 +107,6 @@ $result = $stmt->get_result();
   <?php endwhile; ?>
 </div>
 
-<!-- Pagination -->
 <div id="pagination">
   <?php if ($page > 1): ?>
     <a href="?query=<?= urlencode($search_query) ?>&gender=<?= $gender ?>&sort=<?= $sort ?>&page=1"

@@ -1,0 +1,309 @@
+/* Anand */
+
+
+#tara_image,
+#alexa {
+  width: 95%;
+  height: 600px;
+  margin: auto;
+}
+
+#tara_image>img,
+#alexa>img {
+  height: 100%;
+  width: 100%;
+}
+
+#tara_image>p {
+  font-size: 22px;
+  margin-bottom: 1%;
+  color: black;
+}
+
+#training_ess,
+#on_rise {
+  width: 50%;
+  text-align: center;
+  height: 200px;
+  margin: 3% auto;
+  margin-bottom: 6%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: black;
+}
+
+#training_ess {
+  margin: 7% auto;
+}
+
+#training_ess>p:first-child {
+  font-size: 17px;
+}
+
+#training_ess>p:nth-child(2),
+#on_rise>p:first-child {
+  font-size: 49px;
+  font-weight: bolder;
+  margin: -10px 0 0px 0px;
+  transform: scale(1.5);
+  font-family: "Fira Sans Extra Condensed", sans-serif;
+}
+
+#on_rise>p:nth-child(2),
+#training_ess>p:nth-child(3) {
+  font-size: 16px;
+  margin: 4% 0;
+}
+
+#training_ess>div,
+#on_rise>div {
+  display: flex;
+  margin-left: 24%;
+  font-size: 16px;
+}
+
+#training_ess>div>button:nth-child(2),
+#on_rise>div>button:first-child {
+  width: 130px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  margin: 0 8px;
+  background-color: black;
+}
+
+#training_ess>div>button:hover,
+#on_rise>div>button:hover {
+  background-color: rgb(49, 49, 49);
+}
+
+#on_rise>div>button:nth-child(2) {
+  width: 180px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  background-color: black;
+}
+
+#training_ess>div>button:first-child {
+  width: 230px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  background-color: black;
+}
+
+
+
+
+/* Faruk */
+#faruk {
+  width: 93%;
+  margin: auto;
+  border: 1px solid transparent;
+}
+
+#ekiden_div1 {
+  align-items: center;
+  text-align: center;
+  width: 60%;
+  margin: auto;
+
+}
+
+#faruk_rise_together {
+  font-weight: 1000;
+  font-size: 80px;
+  margin-top: 0px;
+  word-spacing: 0px;
+  letter-spacing: -5px;
+  margin-bottom: 5px;
+}
+
+#ekiden_div1>p:nth-child(3) {
+
+  margin-top: 0px;
+
+}
+
+#ekiden_div1>p:nth-child(1) {
+  margin-bottom: -10px;
+
+
+}
+
+#ekiden_div1>p {
+  line-height: 30px;
+  font-size: 21px;
+
+
+}
+
+#ekiden_div1>button {
+  background-color: black;
+  color: white;
+  padding: 15px 40px;
+  border: transparent;
+  border-radius: 25px;
+  font-weight: bold;
+
+}
+
+#ekiden_container>div>div>div>button {
+  background-color: black;
+  color: white;
+  padding: 15px 40px;
+  border: transparent;
+  border-radius: 25px;
+  font-weight: bold;
+
+}
+
+#ekiden_div2 {
+  display: flex;
+  margin: auto;
+  padding: 0px 50px;
+
+
+}
+
+#ekiden_div2>div {
+  width: 33%;
+  margin-left: 15px;
+
+  overflow: hidden;
+}
+
+#ekiden_div2>div:nth-child(3) {
+  overflow: hidden;
+}
+
+#ekiden_container>div:nth-child(1) {
+  display: inline-block;
+  margin-left: 62px;
+  /* font-weight: bold; */
+  font-size: x-large;
+  margin-top: 100px;
+}
+
+#ekiden_div3>div {
+
+  margin-top: 130px;
+}
+
+#ekiden_div3>div>img {
+  width: 95%;
+  padding: 0px 60px;
+
+}
+
+#ekiden_feat {
+  font-size: x-large;
+  margin-left: 70px;
+}
+
+
+/* shubham */
+#lebron-div {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 98%;
+  border: 1px solid transparent;
+  padding-bottom: 20px;
+  color: black;
+
+}
+
+#lebron-div>div:nth-child(1) {
+  text-align: center;
+}
+
+#lebron-div>div>span:nth-child(1) {
+  font-weight: 900;
+  font-size: 60px;
+}
+
+#black-but {
+  height: 40px;
+  width: 90px;
+  background-color: black;
+  color: white;
+  display: block;
+  border: none;
+  border-radius: 40px;
+  font-size: 15px;
+  margin-left: 47.5%;
+
+}
+
+#black-but:hover {
+  background-color: rgba(0, 0, 0, 0.719);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+#parent-lebron {
+
+  width: 94%;
+  margin: auto;
+  height: 650px;
+}
+
+#lebron-dontmiss {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* display: flex; */
+  height: 100%;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+#lebron-dontmiss>div:nth-child(1) {
+  /* border: 4px solid red; */
+  /* width: 50%; */
+  background-repeat: no-repeat;
+  background-image: url("https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/h_900,c_limit/6953060d-024b-4471-b7d8-dbebbaa48a8e/nike-just-do-it.png");
+  background-size: 800px 700px;
+  object-fit: cover;
+}
+
+#lebron-dontmiss>div:nth-child(2) {
+  /* border: 2px solid; */
+  /* width: 50%; */
+  background-repeat: no-repeat;
+  background-image: url("https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/h_900,c_limit/4a8e050c-88f9-4ef5-9056-221aac86dc66/nike-just-do-it.jpg");
+  background-size: 800px 700px;
+  object-fit: cover;
+}
+
+#lebron-dontmiss>div>p {
+  color: white;
+  padding-top: 63.5%;
+  padding-left: 20px;
+}
+
+#white-but {
+  height: 40px;
+  width: 90px;
+  background-color: white;
+  color: black;
+  display: block;
+  border: none;
+  border-radius: 40px;
+  font-size: 15px;
+  margin-left: 20px;
+
+}
+
+#white-but:hover {
+  background-color: rgba(248, 248, 248, 0.555);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+#lebron-div-poster {
+  margin-bottom: 10%;
+}

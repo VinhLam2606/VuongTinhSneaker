@@ -2,7 +2,6 @@
 session_start();
 include "connect-db.php";
 
-// If there's no st_id in the session, get the latest product from the shoe_type table
 if (!isset($_SESSION['st_id'])) {
     $result = $db_server->query("SELECT st_id FROM shoe_type ORDER BY st_id DESC LIMIT 1");
     if ($result && $result->num_rows > 0) {
@@ -13,11 +12,10 @@ if (!isset($_SESSION['st_id'])) {
     }
 }
 
-// Handle form submission
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $st_id = $_SESSION['st_id'];
 
-    // Fixed sizes from 37 to 43
     foreach (range(37, 43) as $size) {
         $quantity = isset($_POST['quantity_' . $size]) ? (int)$_POST['quantity_' . $size] : 0;
         for ($i = 0; $i < $quantity; $i++) {
@@ -28,7 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Handle other sizes
     $other_size = isset($_POST['other_size']) ? (int)$_POST['other_size'] : 0;
     $other_quantity = isset($_POST['quantity_other']) ? (int)$_POST['quantity_other'] : 0;
     if ($other_size > 0 && $other_quantity > 0) {
@@ -63,7 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <th>Quantity</th>
                 </tr>
                 <?php
-                // Display rows for sizes 37 to 43
                 foreach (range(37, 43) as $size) {
                     echo "<tr>
                             <td>$size</td>

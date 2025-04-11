@@ -8,7 +8,6 @@ $page = max(1, intval($_REQUEST["page"] ?? 1));
 $record_ppage = 9;
 $start = ($page - 1) * $record_ppage;
 
-// Apply sorting logic
 switch ($sort) {
     case 'price_asc': $orderBy = "ORDER BY st_price ASC"; break;
     case 'price_desc': $orderBy = "ORDER BY st_price DESC"; break;
@@ -86,7 +85,6 @@ $result = $stmt->get_result();
   <?php endwhile; ?>
 </div>
 
-<!-- Pagination -->
 <div id="pagination">
   <?php if ($page > 1): ?>
     <a href="?query=<?= urlencode($search_query) ?>&gender=<?= $gender ?>&sort=<?= $sort ?>&page=1" 

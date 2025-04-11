@@ -86,7 +86,6 @@ if (isset($_GET['st_id']) && isset($_GET['shoe_size'])) {
         <p class="info"><strong>Size:</strong> <?php echo htmlspecialchars($shoe_size); ?></p>
         <p class="info"><strong>Total Quantity:</strong> <?php echo $quantity; ?></p>
 
-        <!-- Form thêm số lượng -->
         <form method="POST" class="add-form" onsubmit="return confirm('Add new shoes?');">
             <input type="hidden" name="add_st_id" value="<?php echo $st_id; ?>">
             <input type="hidden" name="add_shoe_size" value="<?php echo $shoe_size; ?>">

@@ -11,9 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         foreach ($data as $item) {
             $st_id = $item['st_id'];
             $shoe_size = $item['shoe_size'];
-            $quantity = $item['quantity'] ?? 1; // fallback nếu không có quantity
-
-            // Lặp đúng số lượng để xoá từng dòng một
+            $quantity = $item['quantity'] ?? 1;
             for ($i = 0; $i < $quantity; $i++) {
                 $stmt->bind_param("ii", $st_id, $shoe_size);
                 $stmt->execute();
@@ -21,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         }
 
-        exit; // Dừng tại đây sau khi xử lý POST
+        exit; 
     }
 }
 ?>

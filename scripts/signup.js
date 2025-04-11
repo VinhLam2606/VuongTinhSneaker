@@ -26,8 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const birth = birthInput.value.trim();
         const address = addressInput.value.trim();
         const genderChecked = [...genderInputs].some(input => input.checked);
-        const isTickboxChecked = tickbox.checked; // Kiểm tra checkbox đã được tick chưa
-
+        const isTickboxChecked = tickbox.checked; 
         if (!validateEmail(email)) {
             alert("Email không hợp lệ!");
             valid = false;
@@ -43,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (!valid) {
-            e.preventDefault(); // Ngăn form gửi nếu có lỗi
+            e.preventDefault();
         }
     });
 
@@ -76,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Vui lòng chọn giới tính!");
             return false;
         }
-        if (!isTickboxChecked) { // Kiểm tra checkbox đã được tick chưa
+        if (!isTickboxChecked) { 
             alert("Vui lòng xác nhận điều khoản dịch vụ!");
             return false;
         }

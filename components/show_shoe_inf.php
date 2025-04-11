@@ -8,7 +8,6 @@ if (!isset($_GET['st_id'])) {
 
 $st_id = (int)$_GET['st_id'];
 
-// Lấy thông tin sản phẩm
 $stmt = $db_server->prepare("SELECT st_name, st_gen, st_price, st_image_link FROM shoe_type WHERE st_id = ?");
 $stmt->bind_param("i", $st_id);
 $stmt->execute();
@@ -22,7 +21,6 @@ if ($result->num_rows === 0) {
 $product = $result->fetch_assoc();
 $stmt->close();
 
-// Lấy số lượng theo từng size
 $stmt = $db_server->prepare("SELECT shoe_size, COUNT(*) as quantity FROM shoe WHERE st_id = ? GROUP BY shoe_size ORDER BY shoe_size ASC");
 $stmt->bind_param("i", $st_id);
 $stmt->execute();
